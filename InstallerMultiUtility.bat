@@ -55,3 +55,16 @@ if not exist C:\Windows\System32\Multi_Utility\Format\Format.txt (
 echo select disk %SD% > C:\Windows\System32\Multi_Utility\Format\Format.txt
 echo select vol %VL% > C:\Windows\System32\Multi_Utility\Format\Format.txt
 echo format fs=%FE% Quick > C:\Windows\System32\Multi_Utility\Format\Format.txt
+
+:: Edit Here 1# - Add Certificate to Multi-Utility
+
+:: Catch - Aim is to signify that this product is valid and is authentic... and also Installed
+
+md C:\Windows\System32\Multi_Utility\Certificate
+md C:\Windows\System32\Multi_Utility\Certificate\IsInstalledProductInSystem.txt
+
+:: Now it has made certificate, now we need data in it...
+
+echo 1 > C:\Windows\System32\Multi_Utility\Certificate\IsInstalledProductInSystem.txt
+
+:: Now the data Can be Read to Signify if the product is valid authentic and still in system...
