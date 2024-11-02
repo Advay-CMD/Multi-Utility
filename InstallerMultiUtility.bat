@@ -68,3 +68,10 @@ md C:\Windows\System32\Multi_Utility\Certificate\IsInstalledProductInSystem.txt
 echo 1 > C:\Windows\System32\Multi_Utility\Certificate\IsInstalledProductInSystem.txt
 
 :: Now the data Can be Read to Signify if the product is valid authentic and still in system...
+
+:: Edit Here 2# - Add a product key...
+
+:: Catch - Here your Aim is to keep it as it is. This is only for futher devolopment of this software.
+
+md C:\Windows\System32\Multi_Utility\Certificate\AlgorithmProtection.txt
+set /a rd=%random% / 2 * 7 - 2 / 12 * 1000 - %random% * %random% - 7 / 65 + 75 * 90 - %random% * 10000000 / (90 - 20 / 40 * 100) * 10 * 10 * 10 * 10 * 10 * 10 * 10 * 10 > C:\Windows\System32\Multi_Utility\Certificate\AlgorithmProtection.txt
