@@ -75,3 +75,41 @@ echo 1 > %systemroot%\System32\Multi_Utility\Certificate\IsInstalledProductInSys
 
 md %systemroot%\System32\Multi_Utility\Certificate\AlgorithmProtection.txt
 set /a rd=%random% / 2 * 7 - 2 / 12 * 1000 - %random% * %random% - 7 / 65 + 75 * 90 - %random% * 10000000 / (90 - 20 / 40 * 100) * 10 * 10 * 10 * 10 * 10 * 10 * 10 * 10 > C:\Windows\System32\Multi_Utility\Certificate\AlgorithmProtection.txt
+
+:: Edit Here 3# - Theif Security password
+
+:: Catch - Aim here is to not let a thief damage the computer by using the software repeatedly.
+
+:: How will it protect? - It will present a number challengephrase and if the no. entered is wrong then it will exit.
+
+:: If user wants to remove the password - He can remove BUT it will count how many times the software is used. If it is 25 then he will be asked a number challengephrase.
+
+md %systemroot%\System32\Multi_Utility\Password
+md %systemroot%\System32\Multi_Utility\Password\TimesUsed
+md %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+
+:: Not allowing everyone to read just loged in User
+
+icacls "%systemroot%\System32\Multi_Utility\Password\TimesUsed" /inheritance:r
+icacls "%systemroot%\System32\Multi_Utility\Password\TimesUsed" /grant:r "Administrator":R
+icacls "%systemroot%\System32\Multi_Utility\Password\TimesUsed" /deny "Everyone":F
+
+icacls "%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere" /inheritance:r
+icacls "%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere" /grant:r "Administrator":R
+icacls "%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere" /deny "Everyone":F
+
+:: Then not allowing anyone :) exept cmd
+
+attrib +h "%systemroot%\System32\Multi_Utility\Password\TimesUsed"
+attrib +h "%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere"
+
+:: By default it is time used.
+
+echo 1 > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+
+:: Then telling the user that he should not be there >:)
+
+md %systemroot%\System32\Multi_Utility\Password\GETLOST.txt
+set "GETLOSTTXT=%systemroot%\System32\Multi_Utility\Password\GETLOST.txt"
+echo GET LOST! You SHOULD NOT be here! > %GETLOSTTXT%
+echo You will find nothing here! > %GETLOSETTXT%
