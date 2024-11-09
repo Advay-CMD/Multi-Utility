@@ -1,14 +1,6 @@
 @echo off
 set MU=C:\Windows\System32\Multi_Utility
-
-if not exist C:\Windows\System32\Multi_Utility (
-             md C:\Windows\System32\Multi_Utility
-)
 set FORMAT=C:\Windows\System32\Multi_Utility\Format
-
-if not exist C:\Windows\System32\Multi_Utility\Format (
-             md C:\Windows\System32\Multi_Utility\Format
-)
 
 cls
 
