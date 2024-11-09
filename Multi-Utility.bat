@@ -24,9 +24,9 @@ echo 8.  Format Disk
 echo 9.  Corrupted Pendrive Fixer
 echo 10. CMD Colour Change
 echo 11. Search Files
-echo 12. .Bat to .Exe
+echo 12. File Hider
 echo 13. Exit
-set /p choice=Enter your choice (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, or 11): 
+set /p choice=Enter your choice (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, or 13): 
 
 if "%choice%"=="1" (
     goto SysReport
@@ -51,7 +51,7 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="11" (
         goto SearchFiles
 ) else if "%choice%"=="12" (
-        goto Battoexe
+        goto File Hider
 ) else if "%choice%"=="13" (
         exit
 ) else (
@@ -409,3 +409,18 @@ goto menu
 ) else (
 goto SearchFiles
 )
+
+:FileHider
+
+echo Give the path of the file you want to hide...
+echo.
+set /p "FileHide=Enter the file path:"
+echo.
+attrib +h "%FILEHIDE%"
+echo.
+echo Hidden. If not probably acess is denied.
+
+echo.
+pause
+echo.
+goto menu
