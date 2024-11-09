@@ -409,35 +409,3 @@ goto menu
 ) else (
 goto SearchFiles
 )
-
-:Battoexe
-
-title Bat to Exe converter
-
-echo Enter File Path (with extention)
-echo.
-set /p "BATFILE=Enter Path of your .bat file:"
-echo.
-echo Enter the name you want in .exe...
-echo.
-set /p "NAMEEXE=Enter Name:"
-echo.
-echo "Where do you want your .exe to be saved?"
-echo.
-set /p "EXEOUT=Enter Path:"
-echo.
-
-set IEXPRESS_PATH="%SystemRoot%\System32\iexpress.exe"
-set BAT_FILE="%BATFILE%"
-set EXE_OUTPUT="%EXEOUT%"
-
-echo Creating .exe from .bat...
-iexpress /B "%BAT_FILE%" /R "cmd.exe /C %BAT_FILE%" /C /A %EXE_OUTPUT%
-
-echo.
-echo Done... If not done try again...
-
-echo.
-pause
-echo.
-goto menu
