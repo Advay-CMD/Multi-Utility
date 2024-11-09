@@ -5,6 +5,24 @@ set FORMAT=C:\Windows\System32\Multi_Utility\Format
 cls
 
 title Welcome to Multi-Utility!
+set /p IsTimeUsedThere=%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+if %IsTimeUsedThere% = 1 (
+       break;
+)
+else (
+      echo Please Solve The Chalange Number
+      echo.
+      set Chalange=%random%
+      set /p "Allowed=Enter Chalange Number:"
+      echo.
+      IF %ALLOWED% EQU %CHALANGE% (
+              echo Right!
+      ) Else (
+              echo Wrong!
+              echo Exiting in...
+              Timeout /T 7
+              Exit
+     )
 
 echo Welcome to Multi-Utility! Here you have to choose an option from menu!
 echo.
