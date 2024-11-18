@@ -113,3 +113,21 @@ md %systemroot%\System32\Multi_Utility\Password\GETLOST.txt
 set "GETLOSTTXT=%systemroot%\System32\Multi_Utility\Password\GETLOST.txt"
 echo GET LOST! You SHOULD NOT be here! > %GETLOSTTXT%
 echo You will find nothing here! > %GETLOSETTXT%
+
+:: Edit Here 4# - To make sure if OneDrive is there
+
+:: Catch - Aim is to tell the software whether OneDrive is there or not, as many people have this feature in their systems.
+
+md %systemroot%\System32\Multi_Utility\OneDrive
+md %systemroot%\System32\Multi_Utility\OneDrive\IsOneDriveThere.txt
+
+if not exist %systemdrive%\Users\%username%\OneDrive (
+              echo 0 > %systemroot%\System32\Multi_Utility\OneDrive\IsOneDriveThere.txt
+) else if exist %systemdrive%\Users\%username%\OneDrive (
+              echo 1 > %systemdrive%\Users\%username%\OneDrive\IsOneDriveThere.txt
+) else (
+              echo Error!
+              echo Exiting in...
+              TIMEOUT /T 7
+              exit
+)
