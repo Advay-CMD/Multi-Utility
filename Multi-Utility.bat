@@ -10,12 +10,14 @@ if %IsTimeUsedThere% = 1 (
        break;
 )
 else (
-      echo Please Solve The Chalange Number
+      echo Please Solve The Challange Number
       echo.
-      set Chalange=%random%
-      set /p "Allowed=Enter Chalange Number:"
+      set Challange=%random%
+      echo %Challange%
       echo.
-      IF %ALLOWED% EQU %CHALANGE% (
+      set /p "Allowed=Enter Challange Number:"
+      echo.
+      IF %ALLOWED% EQU %CHALLANGE% (
               echo Right!
       ) Else (
               echo Wrong!
