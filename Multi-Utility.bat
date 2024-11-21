@@ -45,7 +45,8 @@ echo 9.  Corrupted Pendrive Fixer
 echo 10. CMD Colour Change
 echo 11. Search Files
 echo 12. File Hider
-echo 13. Exit
+echo 13. File Unhider
+echo 14. Exit
 set /p choice=Enter your choice (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, or 13): 
 
 if "%choice%"=="1" (
@@ -71,8 +72,10 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="11" (
         goto SearchFiles
 ) else if "%choice%"=="12" (
-        goto File Hider
+        goto FileHider
 ) else if "%choice%"=="13" (
+        goto FileUnhider
+) else if "%choice%"=="14" (
         exit
 ) else (
     echo.
@@ -439,6 +442,21 @@ echo.
 attrib +h "%FILEHIDE%"
 echo.
 echo Hidden. If not probably acess is denied.
+
+echo.
+pause
+echo.
+goto menu
+
+:FileUnhider
+
+echo Give the Path of the file you want to Unhide
+echo.
+set /p "FileUnHide=Enter the file path:"
+echo.
+attrib -h "%FILEUNHIDE%"
+echo.
+echo UnHidden. If not probably access is denied.
 
 echo.
 pause
