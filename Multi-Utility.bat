@@ -76,6 +76,8 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="13" (
         goto FileUnhider
 ) else if "%choice%"=="14" (
+        goto PassRemove
+) else if "%choice%"=="15" (
         exit
 ) else (
     echo.
@@ -435,6 +437,8 @@ goto SearchFiles
 
 :FileHider
 
+title File Hider
+
 echo Give the path of the file you want to hide...
 echo.
 set /p "FileHide=Enter the file path:"
@@ -450,6 +454,8 @@ goto menu
 
 :FileUnhider
 
+title File Unhider
+
 echo Give the Path of the file you want to Unhide
 echo.
 set /p "FileUnHide=Enter the file path:"
@@ -457,6 +463,21 @@ echo.
 attrib -h "%FILEUNHIDE%"
 echo.
 echo UnHidden. If not probably access is denied.
+
+echo.
+pause
+echo.
+goto menu
+
+:PassRemove
+
+title Password Remove
+
+echo Removing Password...
+echo.
+cls > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+echo 1 > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+echo Removed. Still, after 25 times you will be asked for the password.
 
 echo.
 pause
