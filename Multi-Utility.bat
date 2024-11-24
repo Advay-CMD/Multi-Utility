@@ -1,6 +1,6 @@
 @echo off
-set MU=C:\Windows\System32\Multi_Utility
-set FORMAT=C:\Windows\System32\Multi_Utility\Format
+set MU=%systemroot%\System32\Multi_Utility
+set FORMAT=%systemroot%\System32\Multi_Utility\Format
 
 cls
 
