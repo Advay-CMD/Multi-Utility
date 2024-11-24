@@ -5,7 +5,7 @@ set FORMAT=C:\Windows\System32\Multi_Utility\Format
 cls
 
 title Welcome to Multi-Utility!
-set /p IsTimeUsedThere=%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+set /p IsTimeUsedThere=<"%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere"
 if %IsTimeUsedThere% = 0 (
        break;
 )
@@ -440,6 +440,7 @@ goto SearchFiles
 
 title File Hider
 
+echo.
 echo Give the path of the file you want to hide...
 echo.
 set /p "FileHide=Enter the file path:"
@@ -457,6 +458,7 @@ goto menu
 
 title File Unhider
 
+echo.
 echo Give the Path of the file you want to Unhide
 echo.
 set /p "FileUnHide=Enter the file path:"
@@ -474,6 +476,20 @@ goto menu
 
 title Password Remove
 
+set /a TUISTHERE=<"%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere"
+if %TUISTHERE% EQU 1 (
+       break;
+) else (
+       title Warning!
+       echo You have removed the password already.
+       echo.
+       echo The program will not continue.
+       echo.
+       pause
+       echo.
+       goto menu
+)
+echo.
 echo Removing Password...
 echo.
 cls > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
