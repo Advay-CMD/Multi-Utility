@@ -6,7 +6,7 @@ cls
 
 title Welcome to Multi-Utility!
 set /p IsTimeUsedThere=%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
-if %IsTimeUsedThere% = 1 (
+if %IsTimeUsedThere% = 0 (
        break;
 )
 else (
@@ -477,7 +477,7 @@ title Password Remove
 echo Removing Password...
 echo.
 cls > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
-echo 1 > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
+echo 0 > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
 echo Removed. Still, after 25 times you will be asked for the password.
 
 echo.
