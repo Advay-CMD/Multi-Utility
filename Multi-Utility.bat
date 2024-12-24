@@ -272,9 +272,10 @@ goto menu
 title Add Account
 
 echo.
+net accounts /minpwlen:0 > nul 2>&1
 echo Enter Account Name(without illegal symbols): 
 set /p "Account=Enter Account:"
-net user %ACCOUNT% /add
+net user %ACCOUNT% /add > nul 2>&1
 if %ERRORLEVEL%==2 (
 echo Error! This can be because the account already exists or you have used Illegal symbols. Try not including ?,>, and <.
 echo.
@@ -292,7 +293,7 @@ echo Added!
 echo.
 echo Enter Password
 set /p "Password=Password:"
-net user %ACCOUNT% %PASSWORD%
+net user %ACCOUNT% %PASSWORD% > nul 2>&1
 echo Sucsessfully Done!
 echo.
 pause
@@ -306,7 +307,7 @@ title Delete Account
 echo.
 echo Enter The account you want to delete:
 set /p "Daccount=Enter Account:"
-net user %DACCOUNT% /delete
+net user %DACCOUNT% /delete > nul 2>&1
 if %ERRORLEVEL%==2 (
 echo Error! This could be because that the account entered is not correct! Recheck the account!
 echo.
@@ -445,7 +446,7 @@ echo Give the path of the file you want to hide...
 echo.
 set /p "FileHide=Enter the file path:"
 echo.
-attrib +h "%FILEHIDE%"
+attrib +h +s "%FILEHIDE%"
 echo.
 echo Hidden. If not probably acess is denied.
 
@@ -463,38 +464,9 @@ echo Give the Path of the file you want to Unhide
 echo.
 set /p "FileUnHide=Enter the file path:"
 echo.
-attrib -h "%FILEUNHIDE%"
+attrib -h -s "%FILEUNHIDE%"
 echo.
 echo UnHidden. If not probably access is denied.
-
-echo.
-pause
-echo.
-goto menu
-
-:PassRemove
-
-title Password Remove
-
-set /a TUISTHERE=<"%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere"
-if %TUISTHERE% EQU 1 (
-       break;
-) else (
-       title Warning!
-       echo You have removed the password already.
-       echo.
-       echo The program will not continue.
-       echo.
-       pause
-       echo.
-       goto menu
-)
-echo.
-echo Removing Password...
-echo.
-cls > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
-echo 0 > %systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere
-echo Removed. Still, after 25 times you will be asked for the password.
 
 echo.
 pause
