@@ -131,3 +131,20 @@ if not exist %systemdrive%\Users\%username%\OneDrive (
               TIMEOUT /T 7
               exit
 )
+
+:: Edit here 5# - Put the app in the Multi_Utility folder
+:: Catch - Aim is to put the app in this folder
+
+:: First - Where is the app?
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *.bat') do set "a=%%a"
+
+:: Okay, if found then move to Multi_Utility folder
+move a %systemroot%\System32\Multi-Utility
+
+:: Hmm, what about desktop shortcut
+if exist %systemdrive%\Users\%username%\OneDrive (
+                    mklink "%systemdrive%\Users\%username%\OneDrive\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility"
+) else (
+                    mklink "%systemdrive%\Users\%username%\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility"
+)
+:: Now a .symlink file will be there. BUT the user can change it to proper shortcut
