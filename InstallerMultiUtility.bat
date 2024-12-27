@@ -148,3 +148,18 @@ if exist %systemdrive%\Users\%username%\OneDrive (
                     mklink "%systemdrive%\Users\%username%\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility"
 )
 :: Now a .symlink file will be there. BUT the user can change it to proper shortcut
+
+:: Edit here 6# - Register the app in settings
+:: Catch - Aim is to put the app in settings to make uninstallation pretty easy
+
+:: First - Where should we register this app?
+:: Ans - Registry Editor
+
+:: Now if it is like that then we would need to run these following commands
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\MultiUtility.bat" /t REG_SZ /v "" /d "%systemroot%\System32\Multi_Utility\Multi_Utility.bat" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "DisplayName" /d "Multi Utility" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "InstallLocation" /d "%systemroot%\System32\Multi_Utility\Multi_Utility.bat" /f
+:: I will fill this later
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "" /f
+
+:: Now the app will be seen in Settings
