@@ -1,4 +1,45 @@
 @echo off
+echo.
+echo Hello! Welcome to Multi-Utility! Thank you for clicking the Installer
+echo.
+pause
+echo.
+echo Are you sure you want to install Multi-Utility?
+echo Once you approve some settings will be changed that cannot be undone by the uninstaller
+@choice /c YN /m "Do you want to continue?"
+IF %ERRORLEVEL% EQU 2 (
+         @TIMEOUT /T 5
+         @exit /b
+) ELSE (
+         @break
+)
+
+:: Admin Checkup
+NET SESSION >nul 2>&1
+IF %ERRORLEVEL% EQU 0 (
+    break
+) ELSE (
+    echo.
+    echo FATAL ERROR!
+    echo.
+    echo You are not running this program as a administrator!
+    echo.
+    echo This Program Is Going To Automatically Exit In
+    TIMEOUT /T 10
+    exit /b
+)
+
+echo.
+echo Setup is starting...
+timeout /t 5 /nobreak >nullgar
+echo.
+echo This setup will produce a lot of commands, thus please do not - 1. Close the window 2. Better is not to see those commands and garbage successfulls
+echo.
+pause
+echo.
+echo The setup will start Now...
+echo.
+echo ------------------------------------------------------------------------------------------------------------------------
 
 :: Create a Multi-Utility in System32 folder
 if not exist %systemroot%\System32\Multi_Utility (
@@ -139,7 +180,7 @@ if not exist %systemdrive%\Users\%username%\OneDrive (
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *.bat') do set "a=%%a"
 
 :: Okay, if found then move to Multi_Utility folder
-move a %systemroot%\System32\Multi-Utility
+move %a% %systemroot%\System32\Multi-Utility
 
 :: Hmm, what about desktop shortcut
 if exist %systemdrive%\Users\%username%\OneDrive (
