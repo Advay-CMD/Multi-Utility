@@ -4,6 +4,13 @@ set FORMAT=%systemroot%\System32\Multi_Utility\Format
 
 cls
 
+NET SESSION >nul 2>&1
+IF %ERRORLEVEL% EQU 0 (
+       break
+) ELSE (
+      powershell -Command "Start-Process '%systemroot%\System32\Multi_Utility\Sysreport.bat' -Verb RunAs" && exit
+)
+
 title Welcome to Multi-Utility!
 set /p IsTimeUsedThere=<"%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere"
 if %IsTimeUsedThere% = 0 (
@@ -46,7 +53,6 @@ echo 10. CMD Colour Change
 echo 11. Search Files
 echo 12. File Hider
 echo 13. File Unhider
-echo 14. Password/Challange Remover(For Multi Utility)
 echo 15. Exit
 set /p choice=Enter your choice (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, or 13): 
 
@@ -77,8 +83,6 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="13" (
         goto FileUnhider
 ) else if "%choice%"=="14" (
-        goto PassRemove
-) else if "%choice%"=="15" (
         exit
 ) else (
     echo.
