@@ -201,7 +201,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\MultiUtility.b
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "DisplayName" /d "Multi Utility" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "InstallLocation" /d "%systemroot%\System32\Multi_Utility\Multi_Utility.bat" /f
 :: I will fill this later
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "%systemroot%\System32\Multi-Utility" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "%systemroot%\System32\Multi-Utility\UninstallString.bat" /f
 
 :: Now the app will be seen in Settings
 
