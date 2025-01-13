@@ -8,10 +8,10 @@ echo Are you sure you want to install Multi-Utility?
 echo Once you approve some settings will be changed that cannot be undone by the uninstaller
 @choice /c YN /m "Do you want to continue?"
 IF %ERRORLEVEL% EQU 2 (
-         @TIMEOUT /T 5
-         @exit /b
+         TIMEOUT /T 5
+         exit /b
 ) ELSE (
-         @break
+         break
 )
 
 :: Admin Checkup
