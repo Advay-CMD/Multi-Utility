@@ -31,7 +31,7 @@ IF %ERRORLEVEL% EQU 0 (
 
 echo.
 echo Setup is starting...
-timeout /t 5 /nobreak >nullgar
+timeout /t 5 >nullgar
 echo.
 echo This setup will produce a lot of commands, thus please do not - 1. Close the window 2. Better is not to see those commands and garbage successfulls
 echo.
