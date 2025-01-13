@@ -177,10 +177,10 @@ if not exist %systemdrive%\Users\%username%\OneDrive (
 :: Catch - Aim is to put the app in this folder
 
 :: First - Where is the app?
-for /f "delims=" %%a in ('where /R %systemdrive%\Users *.bat') do set "a=%%a"
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *Multi_Utility.bat') do set "a=%%a"
 
 :: Okay, if found then move to Multi_Utility folder
-move %a% %systemroot%\System32\Multi-Utility
+move %a% %systemroot%\System32\Multi_Utility
 
 :: Hmm, what about desktop shortcut
 if exist %systemdrive%\Users\%username%\OneDrive (
@@ -201,6 +201,12 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\MultiUtility.b
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "DisplayName" /d "Multi Utility" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "InstallLocation" /d "%systemroot%\System32\Multi_Utility\Multi_Utility.bat" /f
 :: I will fill this later
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "%systemroot%\System32\Multi-Utility" /f
 
 :: Now the app will be seen in Settings
+
+:: Edit here 7# - Put uninstall string in the Multi_Utility
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *UninstallString.bat') do set "a=%%a"
+
+:: Okay, if found then move to Multi_Utility folder
+move %a% %systemroot%\System32\Multi_Utility
