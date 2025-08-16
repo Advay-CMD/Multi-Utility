@@ -12,27 +12,6 @@ IF %ERRORLEVEL% EQU 0 (
 )
 
 title Welcome to Multi-Utility!
-set /p IsTimeUsedThere=<"%systemroot%\System32\Multi_Utility\Password\IsTimeUsedThere"
-if %IsTimeUsedThere% = 0 (
-       break;
-)
-else (
-      echo Please Solve The Challange Number
-      echo.
-      set Challange=%random%
-      echo %Challange%
-      echo.
-      set /p "Allowed=Enter Challange Number:"
-      echo.
-      IF %ALLOWED% EQU %CHALLANGE% (
-              echo Right!
-      ) Else (
-              echo Wrong!
-              echo Exiting in...
-              Timeout /T 7
-              Exit
-     )
-
 echo Welcome to Multi-Utility! Here you have to choose an option from menu!
 echo.
 pause
