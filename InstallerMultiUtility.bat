@@ -154,3 +154,6 @@ for /f "delims=" %%a in ('where /R %systemdrive%\Users *UninstallString.bat') do
 
 :: Okay, if found then move to Multi_Utility folder
 move %a% %systemroot%\System32\Multi_Utility
+
+echo Done installing! Thank you for choosing this product.
+pause
