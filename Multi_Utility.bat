@@ -127,7 +127,7 @@ echo. >> %reportPath%
 echo Memory Information: >> %reportPath%
 echo -------------------- >> %reportPath%
 echo. >> %reportPath%
-wimc OS get Name >>%reportPath%
+wmic OS get Name >>%reportPath%
 echo. >> %reportPath%
 echo Free Physical Memory (MB), Total Visible Memory Size (MB): >> %reportPath%
 wmic OS get FreePhysicalMemory, TotalVisibleMemorySize >> %reportPath%
@@ -136,7 +136,7 @@ echo. >> %reportPath%
 echo RAM Information: >> %reportPath%
 echo ------------------ >> %reportPath%
 echo. >> %reportPath%
-wimc MEMORYCHIP get Name >> %reportPath%
+wmic MEMORYCHIP get Name >> %reportPath%
 echo. >> %reportPath%
 echo Total RAM Capacity (GB): >> %reportPath%
 wmic MEMORYCHIP get Capacity >> %reportPath%
