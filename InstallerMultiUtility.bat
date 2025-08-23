@@ -19,14 +19,11 @@ NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
     break
 ) ELSE (
-    echo.
-    echo FATAL ERROR!
-    echo.
-    echo You are not running this program as a administrator!
-    echo.
-    echo This Program Is Going To Automatically Exit In
-    TIMEOUT /T 10
-    exit /b
+         echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\elevate.vbs"
+         echo UAC.ShellExecute "cmd.exe", "/c %~s0", "", "runas", 1 >> "%temp%\elevate.vbs"
+         cscript //nologo "%temp%\elevate.vbs"
+         del "%temp%\elevate.vbs"
+         exit /b
 )
 
 echo.
