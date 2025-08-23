@@ -8,7 +8,13 @@ NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
        break
 ) ELSE (
-      powershell -Command "Start-Process '%systemroot%\System32\Multi_Utility\Sysreport.bat' -Verb RunAs" && exit
+    :: Not admin, relaunch using VBScript
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\elevate.vbs"
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0", "", "runas", 1 >> "%temp%\elevate.vbs"
+    cscript //nologo "%temp%\elevate.vbs"
+    del "%temp%\elevate.vbs"
+    exit /b
+
 )
 
 title Welcome to Multi-Utility!
