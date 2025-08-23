@@ -1,4 +1,17 @@
 @echo off
+
+NET SESSION >nul 2>&1
+IF %ERRORLEVEL% EQU 0 (
+       break
+) ELSE (
+    :: Not admin, relaunch using VBScript
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\elevate.vbs"
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0", "", "runas", 1 >> "%temp%\elevate.vbs"
+    cscript //nologo "%temp%\elevate.vbs"
+    del "%temp%\elevate.vbs"
+    exit /b
+
+)
 echo You sure you want to uninstall this program?
 @choice /c YN /m "Do you want to continue?"
 IF %ERRORLEVEL% EQU 2 (
