@@ -125,9 +125,9 @@ move %a% %systemroot%\System32\Multi_Utility\
 
 :: Hmm, what about desktop shortcut
 if exist %systemdrive%\Users\%username%\OneDrive (
-                    mklink "%systemdrive%\Users\%username%\OneDrive\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility"
+                    mklink "%systemdrive%\Users\%username%\OneDrive\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility.bat"
 ) else (
-                    mklink "%systemdrive%\Users\%username%\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility"
+                    mklink "%systemdrive%\Users\%username%\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility.bat"
 )
 :: Now a .symlink file will be there. BUT the user can change it to proper shortcut
 
