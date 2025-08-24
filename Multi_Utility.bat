@@ -1,6 +1,20 @@
 @echo off
-set MU=%systemroot%\System32\Multi_Utility
-set FORMAT=%systemroot%\System32\Multi_Utility\Format
+
+set "filename=installocation123098.txt"
+set "installocation="
+
+for %%D in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
+    if exist "%%D:\" (
+        for /r "%%D:\" %%F in (%filename%) do (
+            set "installocation=%%F"
+            goto :mainpart
+        )
+    )
+)
+
+:mainpart
+set MU=%installocation%\Multi_Utility
+set FORMAT=%installocation%\Multi_Utility\Format
 
 cls
 
@@ -84,7 +98,7 @@ set time=%time:~0,2%%time:~3,2%%time:~6,2%%time:~9,4%
 :: Removing Semicolons from Time
 
 :: Folder where directories will be saved
-set reportFile=C:\Windows\System32\Multi_Utility\reportFile
+set reportFile=%installocation%\Multi_Utility\reportFile
 set reportDir=%reportFile%\SysReport
 set reportPath=%reportDir%_Date_%date%_Time_%time%.txt
 
@@ -323,18 +337,18 @@ title Format Disk
 echo.
 echo Enter what to format to ntfs,fat32,fat(if the name is not out of these 3 it will result in program exit):
 set /p "FE=Enter:"
-Diskpart < C:\Windows\System32\Multi_Utility\Format\ListDisk.txt
+Diskpart < %installocation%\Multi_Utility\Format\ListDisk.txt
 echo.
 echo Select Disk - 
 set /p "SD=Enter Disk No:"
 echo.
-Diskpart < C:\Windows\System32\Multi_Utility\Format\ListVol.txt
+Diskpart < %installocation%\Multi_Utility\Format\ListVol.txt
 echo.
 echo Select Volume - 
 set /p "VL=Enter Volume No:"
 echo.
 echo Formating...
-Diskpart < C:\Windows\System32\Multi_Utility\Format\Format.txt
+Diskpart < %installocation%\Multi_Utility\Format\Format.txt
 echo.
 echo Formated
 echo.
@@ -353,18 +367,18 @@ pause
 echo.
 echo Enter what to format to ntfs,fat32,fat(if the name is not out of these 3 it will result in program exit):
 set /p "FE=Enter:"
-Diskpart < C:\Windows\System32\Multi_Utility\Format\ListDisk.txt
+Diskpart < %installocation%\Multi_Utility\Format\ListDisk.txt
 echo.
 echo Select Disk - 
 set /p "SD=Enter Disk No:"
 echo.
-Diskpart < C:\Windows\System32\Multi_Utility\Format\ListVol.txt
+Diskpart < %installocation%\Multi_Utility\Format\ListVol.txt
 echo.
 echo Select Volume - 
 set /p "VL=Enter Volume No:"
 echo.
 echo. Fixing...
-Diskpart < C:\Windows\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+Diskpart < %installocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
 echo.
 echo Fixed! If it hasn't been fixed it can be because of the pendrive permanently damaged! Please go to a technical store if not fixed!
 echo.
