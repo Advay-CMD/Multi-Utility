@@ -28,10 +28,8 @@ IF %ERRORLEVEL% EQU 0 (
 
 echo.
 echo Setup is starting...
-timeout /t 5 >null
+timeout /t 5 >nullgar
 echo.
-echo Where to install this product?
-set /p installlocation="Where to install this product?         "
 echo This setup will produce a lot of commands, thus please do not - 1. Close the window 2. Better is not to see those commands and garbage successfulls
 echo.
 pause
@@ -41,55 +39,55 @@ echo.
 echo ------------------------------------------------------------------------------------------------------------------------
 
 :: Create a Multi-Utility in System32 folder
-if not exist %installlocation%\Multi_Utility (
-             md %installlocation%\Multi_Utility
+if not exist %systemroot%\System32\Multi_Utility (
+             md %systemroot%\System32\Multi_Utility
 )
 
 :: Create a Format in Multi-Utility folder
-if not exist %installlocation%\Multi_Utility\Format\ (
-             md %installlocation%\Multi_Utility\Format\
+if not exist %systemroot%\System32\Multi_Utility\Format\ (
+             md %systemroot%\System32\Multi_Utility\Format\
 )
 
 :: Create a CorruptedPendirveFix in Multi-Utilty folder
-if not exist %installlocation%\Multi_Utility\CorruptedPendirveFix\ (
-             md %installlocation%\Multi_Utility\CorruptedPendirveFix\
+if not exist %systemroot%\System32\Multi_Utility\CorruptedPendirveFix\ (
+             md %systemroot%\System32\Multi_Utility\CorruptedPendirveFix\
 )
 
 :: Inserting data in  CorruptedPendirveFix.txt
-echo select disk %SD% > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo select vol %VL% > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo clean > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo create partition primary > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo select disk %SD% > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo select vol %VL% > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo format fs=%FE% > %installlocation%\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select disk %SD% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select vol %VL% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo clean > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo create partition primary > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select disk %SD% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select vol %VL% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo format fs=%FE% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
 
 :: In Format folder creating ListVol.txt to list volume using diskpart
 
 :: First - Insert Data
-echo list vol > %installlocation%\Multi_Utility\Format\ListVol.txt
+echo list vol > %systemroot%\System32\Multi_Utility\Format\ListVol.txt
 
 :: In Format Folder creating ListDisk to list disk using diskpart
 
 :: First - Insert Data
-echo list disk > %installlocation%\Multi_Utility\Format\ListDisk.txt
+echo list disk > %systemroot%\System32\Multi_Utility\Format\ListDisk.txt
 
 :: In Format Folder creating Format to Format the disk using diskpart
 
 :: First - Insert Data
-echo select disk %SD% > %installlocation%\Multi_Utility\Format\Format.txt
-echo select vol %VL% > %installlocation%\Multi_Utility\Format\Format.txt
-echo format fs=%FE% Quick > %installlocation%\Multi_Utility\Format\Format.txt
+echo select disk %SD% > %systemroot%\System32\Multi_Utility\Format\Format.txt
+echo select vol %VL% > %systemroot%\System32\Multi_Utility\Format\Format.txt
+echo format fs=%FE% Quick > %systemroot%\System32\Multi_Utility\Format\Format.txt
 
 :: Edit Here 1# - Add Certificate to Multi-Utility
 
 :: Catch - Aim is to signify that this product is valid and is authentic... and also Installed
 
-md %installlocation%\Multi_Utility\Certificate
+md %systemroot%\System32\Multi_Utility\Certificate
 
 :: Now it has made certificate, now we need data in it...
 
-echo 1 > %installlocation%\Multi_Utility\Certificate\IsInstalledProductInSystem.txt
+echo 1 > %systemroot%\System32\Multi_Utility\Certificate\IsInstalledProductInSystem.txt
 
 :: Now the data Can be Read to Signify if the product is valid authentic and still in system...
 
@@ -103,10 +101,10 @@ set /a rd=%random% / 2 * 7 - 2 / 12 * 1000 - %random% * %random% - 7 / 65 + 75 *
 
 :: Catch - Aim is to tell the software whether OneDrive is there or not, as many people have this feature in their systems.
 
-md %installlocation%\Multi_Utility\OneDrive
+md %systemroot%\System32\Multi_Utility\OneDrive
 
 if not exist %systemdrive%\Users\%username%\OneDrive (
-              echo 0 > %installlocation%\Multi_Utility\OneDrive\IsOneDriveThere.txt
+              echo 0 > %systemroot%\System32\Multi_Utility\OneDrive\IsOneDriveThere.txt
 ) else if exist %systemdrive%\Users\%username%\OneDrive (
               echo 1 > %systemdrive%\Users\%username%\OneDrive\IsOneDriveThere.txt
 ) else (
@@ -123,13 +121,13 @@ if not exist %systemdrive%\Users\%username%\OneDrive (
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *Multi_Utility.bat') do set "a=%%a"
 
 :: Okay, if found then move to Multi_Utility folder
-move %a% %installlocation%\Multi_Utility\
+move %a% %systemroot%\System32\Multi_Utility\
 
 :: Hmm, what about desktop shortcut
 if exist %systemdrive%\Users\%username%\OneDrive (
-                    mklink "%systemdrive%\Users\%username%\OneDrive\Desktop\Multi_Utility" "%installlocation%\Multi_Utility\Multi_Utility.bat"
+                    mklink "%systemdrive%\Users\%username%\OneDrive\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility.bat"
 ) else (
-                    mklink "%systemdrive%\Users\%username%\Desktop\Multi_Utility" "%installlocation%\Multi_Utility\Multi_Utility.bat"
+                    mklink "%systemdrive%\Users\%username%\Desktop\Multi_Utility" "%systemroot%\System32\Multi_Utility\Multi_Utility.bat"
 )
 :: Now a .symlink file will be there. BUT the user can change it to proper shortcut
 
@@ -140,11 +138,11 @@ if exist %systemdrive%\Users\%username%\OneDrive (
 :: Ans - Registry Editor
 
 :: Now if it is like that then we would need to run these following commands
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\MultiUtility.bat" /t REG_SZ /v "" /d "%installlocation%\Multi_Utility\Multi_Utility.bat" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\MultiUtility.bat" /t REG_SZ /v "" /d "%systemroot%\System32\Multi_Utility\Multi_Utility.bat" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "DisplayName" /d "Multi Utility" /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "InstallLocation" /d "%installlocation%\Multi_Utility\Multi_Utility.bat" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "InstallLocation" /d "%systemroot%\System32\Multi_Utility\Multi_Utility.bat" /f
 :: I will fill this later
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "%installlocation%\Multi-Utility\UninstallString.bat" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /t REG_SZ /v "UninstallString" /d "%systemroot%\System32\Multi-Utility\UninstallString.bat" /f
 
 :: Now the app will be seen in Settings
 
@@ -152,14 +150,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" 
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *UninstallString.bat') do set "a=%%a"
 
 :: Okay, if found then move to Multi_Utility folder
-move %a% %installlocation%\Multi_Utility
+move %a% %systemroot%\System32\Multi_Utility
 
-::Edit here 8# - Where is the app for the Multi Utility?
-
-echo %installlocation% > %installlocation%\Multi_Utility\Certificate\installocation123098.txt
-
-echo.
-echo.
 echo Done installing! Thank you for choosing this product.
-echo.
 pause
