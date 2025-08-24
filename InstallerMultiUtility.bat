@@ -156,7 +156,7 @@ move %a% %installlocation%\Multi_Utility
 
 ::Edit here 8# - Where is the app for the Multi Utility?
 
-echo %installlocation% > %installlocation%\Multi_Utility\Certificate\installedlocation.txt
+echo %installlocation% > %installlocation%\Multi_Utility\Certificate\installocation123098.txt
 
 echo.
 echo.
