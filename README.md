@@ -23,11 +23,11 @@ See the thing is, it is a batch file. You don't trust me then see it's code. You
 To install this program you will need the .zip file extracted. I hope you know that.
 <br>
 Now click twice on the program InstallerMultiUtility.bat
-<br>
+<br><br>
 ![InstallerMultiUtility](https://github.com/Advay-CMD/Multi-Utility/blob/main/gif1.gif)
-<br>
+<br><br>
 Now the app would have been launched... It will check for admin permisions, therefore, if you encounter a UAC(User Account Control) click the "Yes" button.
-<br>
+<br><br>
 Make sure to not close the window and remain calm, it will start downloading the data.
 
 MD STILL IN PROGRESS
