@@ -28,6 +28,6 @@ Now click twice on the program InstallerMultiUtility.bat
 <br><br>
 Now the app would have been launched... It will check for admin permisions, therefore, if you encounter a UAC(User Account Control) click the "Yes" button.
 <br><br>
-Make sure to not close the window and remain calm, it will start downloading the data.
+Make sure to not close the window and remain calm, it will start writing the data.
 
 MD STILL IN PROGRESS
