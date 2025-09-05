@@ -28,7 +28,7 @@ IF %ERRORLEVEL% EQU 0 (
 
 echo.
 echo Setup is starting...
-timeout /t 5 >nullgar
+timeout /t 5 >nul
 echo.
 echo This setup will produce a lot of commands, thus please do not - 1. Close the window 2. Better is not to see those commands and garbage successfulls
 echo.
@@ -38,29 +38,14 @@ echo The setup will start Now...
 echo.
 echo ------------------------------------------------------------------------------------------------------------------------
 
-:: Create a Multi-Utility in System32 folder
-if not exist %systemroot%\System32\Multi_Utility (
-             md %systemroot%\System32\Multi_Utility
-)
-
-:: Create a Format in Multi-Utility folder
-if not exist %systemroot%\System32\Multi_Utility\Format\ (
-             md %systemroot%\System32\Multi_Utility\Format\
-)
-
-:: Create a CorruptedPendirveFix in Multi-Utilty folder
-if not exist %systemroot%\System32\Multi_Utility\CorruptedPendirveFix\ (
-             md %systemroot%\System32\Multi_Utility\CorruptedPendirveFix\
-)
-
 :: Inserting data in  CorruptedPendirveFix.txt
 echo select disk %SD% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo select vol %VL% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo clean > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo create partition primary > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo select disk %SD% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo select vol %VL% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
-echo format fs=%FE% > %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select vol %VL% >> %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo clean >> %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo create partition primary >> %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select disk %SD% >> %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo select vol %VL% >> %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
+echo format fs=%FE% >> %systemroot%\System32\Multi_Utility\CorruptedPendriveFix\CorruptedPendriveFix.txt
 
 :: In Format folder creating ListVol.txt to list volume using diskpart
 
@@ -76,14 +61,12 @@ echo list disk > %systemroot%\System32\Multi_Utility\Format\ListDisk.txt
 
 :: First - Insert Data
 echo select disk %SD% > %systemroot%\System32\Multi_Utility\Format\Format.txt
-echo select vol %VL% > %systemroot%\System32\Multi_Utility\Format\Format.txt
-echo format fs=%FE% Quick > %systemroot%\System32\Multi_Utility\Format\Format.txt
+echo select vol %VL% >> %systemroot%\System32\Multi_Utility\Format\Format.txt
+echo format fs=%FE% Quick >> %systemroot%\System32\Multi_Utility\Format\Format.txt
 
 :: Edit Here 1# - Add Certificate to Multi-Utility
 
 :: Catch - Aim is to signify that this product is valid and is authentic... and also Installed
-
-md %systemroot%\System32\Multi_Utility\Certificate
 
 :: Now it has made certificate, now we need data in it...
 
