@@ -59,7 +59,7 @@ echo list disk > %systemroot%\System32\Multi_Utility\Format\ListDisk.txt
 
 :: In Format Folder creating Format to Format the disk using diskpart
 
-:: First - Insert Data
+:: First - Insert Data -
 echo select disk %SD% > %systemroot%\System32\Multi_Utility\Format\Format.txt
 echo select vol %VL% >> %systemroot%\System32\Multi_Utility\Format\Format.txt
 echo format fs=%FE% Quick >> %systemroot%\System32\Multi_Utility\Format\Format.txt
