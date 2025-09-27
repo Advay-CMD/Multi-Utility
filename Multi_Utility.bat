@@ -181,18 +181,6 @@ pause
 echo.
 goto menu
 
-:SystemScan
-
-title System Scan
-
-echo Running system scan...
-:: You can replace the command below with your preferred scanning tool or command
-"%ProgramFiles%\Windows Defender\MpCmdRun.exe" -Scan -ScanType 1
-
-pause
-echo.
-goto menu
-
 :VirusScan
 
 title File Virus Scan
