@@ -197,16 +197,16 @@ goto menu
 
 title File Virus Scan
 
-echo Enter the full path of the file to scan for viruses:
-set /p filepath=File Path: 
+echo Enter the path of the file:       
+call filedialogtrial.bat
 
 :: Check if the file exists before scanning
-if exist "%filepath%" (
-    echo Scanning the file "%filepath%" for viruses...
+if exist "%resultA%" (
+    echo Scanning the file "%resultA%" for viruses...
     :: Scan the specified file using Windows Defender
-    "%ProgramFiles%\Windows Defender\MpCmdRun.exe" -Scan -ScanType 3 -File "%filepath%"
+    "%ProgramFiles%\Windows Defender\MpCmdRun.exe" -Scan -ScanType 3 -File "%resultA%"
 ) else (
-    echo The file "%filepath%" does not exist. Please check the path and try again.
+    echo The file "%resultA%" does not exist. Please check the path and try again.
 )
 
 pause
@@ -432,10 +432,9 @@ title File Hider
 
 echo.
 echo Give the path of the file you want to hide...
+call filedialogtrial.bat
 echo.
-set /p "FileHide=Enter the file path:"
-echo.
-attrib +h +s "%FILEHIDE%"
+attrib +h +s "%resultA%"
 echo.
 echo Hidden. If not probably acess is denied.
 
@@ -450,10 +449,8 @@ title File Unhider
 
 echo.
 echo Give the Path of the file you want to Unhide
-echo.
-set /p "FileUnHide=Enter the file path:"
-echo.
-attrib -h -s "%FILEUNHIDE%"
+call filedialogtrial.bat
+attrib -h -s "%resultA%"
 echo.
 echo UnHidden. If not probably access is denied.
 
