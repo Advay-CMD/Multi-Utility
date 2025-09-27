@@ -1,15 +1,14 @@
 @echo off
-setlocal
+set "value="
 
-:: Use PowerShell to open file picker and capture the result
-for /f "usebackq delims=" %%F in (`powershell -nologo -noprofile -command ^
-  "[System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') > $null; ^
-   $ofd = New-Object System.Windows.Forms.OpenFileDialog; ^
-   $ofd.InitialDirectory = [Environment]::GetFolderPath('Desktop'); ^
-   $ofd.Filter = 'All files (*.*)|*.*'; ^
-   if ($ofd.ShowDialog() -eq 'OK') { $ofd.FileName }"`) do (
-    set "value=%%F"
+:: Embed the PowerShell script inline
+set "pscode=[void][Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms');"
+set "pscode=%pscode% $dlg = New-Object Windows.Forms.OpenFileDialog;"
+set "pscode=%pscode% $dlg.InitialDirectory = [Environment]::GetFolderPath('Desktop');"
+set "pscode=%pscode% $dlg.Filter = 'All Files (*.*)|*.*';"
+set "pscode=%pscode% if ($dlg.ShowDialog() -eq 'OK') { Write-Output $dlg.FileName }"
+
+:: Run PowerShell and capture the output
+for /f "delims=" %%F in ('powershell -noprofile -command "%pscode%"') do (
+    set "resultA=%%F"
 )
-
-endlocal & set "resultA=%value%"
-exit /b
