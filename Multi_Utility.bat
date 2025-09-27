@@ -198,7 +198,7 @@ goto menu
 title File Virus Scan
 
 echo Enter the path of the file:       
-call filedialogtrial.bat
+call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
 
 :: Check if the file exists before scanning
 if exist "%resultA%" (
@@ -432,7 +432,7 @@ title File Hider
 
 echo.
 echo Give the path of the file you want to hide...
-call filedialogtrial.bat
+call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
 echo.
 attrib +h +s "%resultA%"
 echo.
