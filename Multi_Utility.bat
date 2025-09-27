@@ -39,7 +39,7 @@ echo 11. Search Files
 echo 12. File Hider
 echo 13. File Unhider
 echo 14. Exit
-set /p choice=Enter your choice (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, or 13): 
+set /p choice=Enter your choice (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, or 14): 
 
 if "%choice%"=="1" (
     goto SysReport
