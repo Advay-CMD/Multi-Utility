@@ -129,8 +129,15 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" 
 
 :: Now the app will be seen in Settings
 
-:: Edit here 7# - Put uninstall string in the Multi_Utility
+:: Edit here 7# - Put uninstall string and the file dialog in the Multi_Utility
+:: Uninstall string:
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *UninstallString.bat') do set "a=%%a"
+
+:: Okay, if found then move to Multi_Utility folder
+move %a% %systemroot%\System32\Multi_Utility
+
+::File dialog
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *filedialogtrial.bat') do set "a=%%a"
 
 :: Okay, if found then move to Multi_Utility folder
 move %a% %systemroot%\System32\Multi_Utility
