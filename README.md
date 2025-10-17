@@ -30,4 +30,33 @@ Now the app would have been launched... It will check for admin permisions, ther
 <br><br>
 Make sure to not close the window and remain calm, it will start writing the data.
 
-MD STILL IN PROGRESS
+After it is done, click any key to exit.
+<br>
+If you see your desktop, a shortcut will be present.
+<br>
+
+## ✨What are the features I will get in Multi-Utility?
+
+Ah, there is a lot of them!
+<br>
+
+### ✨Features:
+- Security Report
+- Scan file for viruses
+- System Scan
+- System Information
+- Network speed tester
+- Add an Account
+- Delete Account
+- Format disk
+- Courrupted PenDrive fixer
+- CMD colour change
+- Search Files
+- File Hider
+- File unhider
+- Exit
+
+<br>
+A lot right?
+
+## MD STILL IN PROGRESS
