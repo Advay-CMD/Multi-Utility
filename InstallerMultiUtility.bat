@@ -34,6 +34,8 @@ echo This setup will produce a lot of commands, thus please do not - 1. Close th
 echo.
 pause
 echo.
+set /p systemroot=Please enter the installation path:
+echo.
 echo The setup will start Now...
 echo.
 echo ------------------------------------------------------------------------------------------------------------------------
@@ -142,5 +144,8 @@ for /f "delims=" %%a in ('where /R %systemdrive%\Users *filedialogtrial.bat') do
 :: Okay, if found then move to Multi_Utility folder
 move %a% %systemroot%\System32\Multi_Utility
 
+:: Thanks
+cls
+echo.
 echo Done installing! Thank you for choosing this product.
 pause
