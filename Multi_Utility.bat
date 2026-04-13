@@ -185,7 +185,7 @@ goto menu
 
 title File Virus Scan
 
-echo Enter the path of the file:       
+echo Please Wait ./././././././././././././././././.      
 call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
 
 :: Check if the file exists before scanning
@@ -419,7 +419,7 @@ goto SearchFiles
 title File Hider
 
 echo.
-echo Give the path of the file you want to hide...
+echo Please Wait ./././././././././././././././././.
 call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
 echo.
 attrib +h +s "%resultA%"
@@ -436,7 +436,7 @@ goto menu
 title File Unhider
 
 echo.
-echo Give the Path of the file you want to Unhide
+echo Please Wait ./././././././././././././././././.
 call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
 attrib -h -s "%resultA%"
 echo.
