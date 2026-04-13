@@ -206,3 +206,6 @@ That is my AIM. Nothing else.
 - [ ] Make a Command assistor
 - [ ] Make a Deprciated list
 - [ ] Navigate using up and down arrow(Maybe)
+
+## 📈 Stars
+![Repo Stars](https://img.shields.io/github/stars/Advay-CMD/Multi-Utility?style=social)
