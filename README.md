@@ -41,7 +41,7 @@ Ah, there is a lot of them!
 <br>
 
 ### ✨Features:
-- Security Report
+- System Report
 - Scan file for viruses
 - System Scan
 - System Information
@@ -59,4 +59,150 @@ Ah, there is a lot of them!
 <br>
 A lot right?
 
-## MD STILL IN PROGRESS
+## 💻 System Report
+
+This is a really good utility that can list various things in your computer.
+<br>
+### What the utility lists
+- CPU Information
+- Battery Information
+- Memory Information
+- RAM Information
+- GPU Information
+
+<br>
+A quite impressive list, right? It also stores your system reports for later use!
+<br><br>
+
+> [!WARNING]
+> If you are worried about your privacy, let me make it clear,  
+> **This tool does NOT collect data and send it to us!** It only stores for your view.  
+> To delete your data IF you REALLY don't believe → Go to `%root%\System32\Multi_Utility\Reports\` and delete them manually.  
+> Again, this isn't required to be honest.
+
+<br>
+
+> [!WARNING]
+> You need to have wmic installed for this! (Recommended: Just install it! It will help you from headaches using this tool.)
+> See Windows ***Programs and Features*** for this... <br>
+> Windows is stupid to remove WMIC. WMIC is still used by a lot of scripts!
+
+<br>
+
+## 🦠 Scan file for viruses
+
+This program will scan the file that you suspect is a virus. On entering this program, you will be presented with a file dialog, asking you to select the file. Please select and then, wait patiently until the file has been scanned.
+
+## 💻 System Scan
+
+This program will scan your **WHOLE** system for viruses.
+
+## 💻 System Information
+
+Another utility simmilar to System Report that tells your specifications in brief.
+
+## 🛜 Network Speed Tester
+
+I know, I know, it's been a lot of time since this utility was made. Yet, now these bing speed testers are unreliable, and pathetic.<br>
+This is why this tool is kept by me, EVEN after bing speed tester.
+
+> [!WARNING]
+> If Windows improves, this tool might be **DEPRECIATED**.
+
+## 🙂 Add an Account
+
+This program adds an account.
+
+> [!WARNING]
+> You can do the same task in settings. This tool will later be added in **DEPRECIATED**.
+
+## 🫥 Delete an Account
+
+This program deletes an account.
+
+> [!WARNING]
+> You can do the same task in settings. This tool will later be added in **DEPRECIATED**.
+
+# 💾 Format disk
+
+> [!WARNING]
+> Before I start, I AM WARNING.
+> Dangerous tool **IF MISUSED**, but your friend if you **KNOW WHAT YOUR DOING**.<br>
+> It **WIPES** ALL OF YOUR PRECIOUS DATA! Be careful! <br><br> ***YOU ARE WARNED***.
+
+Wipes the selected drive, and then mounts it.
+
+# 💾 Courrupted PenDrive fixer
+
+> [!WARNING]
+> Before I start, I AM WARNING.
+> Dangerous tool **IF MISUSED**, but your friend if you **KNOW WHAT YOUR DOING**.<br>
+> It **WIPES** ALL OF YOUR PRECIOUS DATA! Be careful! <br><br> ***YOU ARE WARNED***.
+
+Wipes the selected drive, repairs it in process and then mounts it.
+
+# 🎨 CMD colour change
+
+Changes the console color. [Working on permanently color change]
+
+# 🔍 Search files
+
+This searches your files... Kind of faster than explorer.
+This program will be improved, to make it certainly faster than explorer. Like search in seconds? We will see.
+
+# 📁 File Hider
+
+Useful for files that need to be hidden from view.
+<br>
+
+> [!WARNING]
+> This is not useful against hackers. It is only for casual usage. Take a copy and note your path.
+> Example for usage: <br>
+> Let say, your making a birthday card for your wife(I wrote initally wifi). Your wife uses that same computer. <br>
+> This is when you can use this function, and maybe reap benfit... unless your wife is a hacker...
+
+# 📁 File Unhider
+
+Useful for files that are hidden and need to be unhidden now.
+> [!WARNING]
+> Continued Example:
+> Now you will be panicing... How to unhide the file. You spent the entire night for her birthday card, and the next morning<br>
+> **Wooosshh** <br>
+> Gone! <br>
+> You want that file BACK. This is the tool that can help you! Remember the path of the file.
+
+<br>
+
+> [!WARNING]
+> Unable to find? Use the Search Files to find hidden files too.
+
+## Thanks for viewing
+
+I am planning to set donations. But remember, my first priority is to satisfy you. Everything else to me is second.
+Donations too is SECOND. <br>
+Please star, heart, watch. This will only motivate me to work towards this project. <br>
+I am bad at english, forgive me.
+
+Anyway... Share to your friends, family, whoever you know.
+
+School is what stops me from contributing this often. The last commit I made was around seven months back. TO-DATE: 13/03/26 <br>
+I try to find time, but yes I have a LOT of things that I keep making, failing. All the part of my learning journey!
+And if you find this amazing, potential to grow, or even if you are a dev:<br>
+
+- Try to contribute
+
+This is a thing I would like the most. I may have made mistakes, I may have done a function wrong, I may have done everything upside down, I might not have add a feature, that you have in mind and the code for that. <br>
+
+I didn't have anyone do this project for me. I did it by myself.<br>
+But I would really appreciate **Team work**, and **Contributions**, that is the thing I need the most.
+Satisfying people and their needs.
+Making software that helps people.
+
+That is my AIM. Nothing else.
+
+## 🛣️ Roadmap
+- [X] Complete MD
+- [ ] Make the UI more cleaner
+- [ ] Make a Command assistor
+- [ ] Make a Deprciated list
+- [ ] Navigate using up and down arrow(Maybe)
