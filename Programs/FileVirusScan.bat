@@ -15,4 +15,3 @@ if exist "%resultA%" (
 
 pause
 echo.
-goto menu
