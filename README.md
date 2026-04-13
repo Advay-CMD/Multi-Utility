@@ -123,7 +123,7 @@ This program deletes an account.
 > [!WARNING]
 > You can do the same task in settings. This tool will later be added in **DEPRECIATED**.
 
-# 💾 Format disk
+## 💾 Format disk
 
 > [!WARNING]
 > Before I start, I AM WARNING.
@@ -132,7 +132,7 @@ This program deletes an account.
 
 Wipes the selected drive, and then mounts it.
 
-# 💾 Courrupted PenDrive fixer
+## 💾 Courrupted PenDrive fixer
 
 > [!WARNING]
 > Before I start, I AM WARNING.
@@ -141,16 +141,16 @@ Wipes the selected drive, and then mounts it.
 
 Wipes the selected drive, repairs it in process and then mounts it.
 
-# 🎨 CMD colour change
+## 🎨 CMD colour change
 
 Changes the console color. [Working on permanently color change]
 
-# 🔍 Search files
+## 🔍 Search files
 
 This searches your files... Kind of faster than explorer.
 This program will be improved, to make it certainly faster than explorer. Like search in seconds? We will see.
 
-# 📁 File Hider
+## 📁 File Hider
 
 Useful for files that need to be hidden from view.
 <br>
@@ -161,7 +161,7 @@ Useful for files that need to be hidden from view.
 > Let say, your making a birthday card for your wife(I wrote initally wifi). Your wife uses that same computer. <br>
 > This is when you can use this function, and maybe reap benfit... unless your wife is a hacker...
 
-# 📁 File Unhider
+## 📁 File Unhider
 
 Useful for files that are hidden and need to be unhidden now.
 > [!WARNING]
