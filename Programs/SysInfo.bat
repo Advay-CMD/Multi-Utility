@@ -25,4 +25,3 @@ echo.
 
 pause
 echo.
-goto menu
