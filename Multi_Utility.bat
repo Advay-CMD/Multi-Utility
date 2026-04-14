@@ -32,6 +32,7 @@ pause
 :: Total number of menu items
 set max=14
 set selected=1
+mode con: cols=60 lines=20
 
 :menu
 cls
