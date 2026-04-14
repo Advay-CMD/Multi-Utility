@@ -129,6 +129,35 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" 
 
 :: Now the app will be seen in Settings
 
+:: Edit here 6# - Put the Programs in the Programs folder
+mkdir %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *AddAcc.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *DelAcc.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *CorruptedPenDrivec.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *FileHider.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *FileUnhider.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *FileVirusScan.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *FormatDisk.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *NST.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *SearchFiles.exe') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *SysInfo.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *SysReport.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *ccc.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *fsvs.bat') do set "a=%%a"
+move %a% %systemroot%\System32\Multi_Utility\Programs
+
 :: Edit here 7# - Put uninstall string and the file dialog in the Multi_Utility
 :: Uninstall string:
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *UninstallString.bat') do set "a=%%a"
