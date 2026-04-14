@@ -1,21 +1,19 @@
 @echo off
 
-set "MUP=%systemroot%\System32\Multi_Utility\Programs" :: MUP is Multi Utility Path
+:: MUP is Multi Utility Path
+set "MUP=%SystemRoot%\System32\Multi_Utility\Programs"
 
+:: Check for Administrator Privileges
 NET SESSION >nul 2>&1
-IF %ERRORLEVEL% EQU 0 (
-       break
-) ELSE (
+IF %ERRORLEVEL% NEQ 0 (
     :: Not admin, relaunch using VBScript
     echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\elevate.vbs"
-    echo UAC.ShellExecute "cmd.exe", "/c %~s0", "", "runas", 1 >> "%temp%\elevate.vbs"
+    echo UAC.ShellExecute "cmd.exe", "/c ""%~f0""", "", "runas", 1 >> "%temp%\elevate.vbs"
     cscript //nologo "%temp%\elevate.vbs"
     del "%temp%\elevate.vbs"
     exit /b
-
 )
 
-@echo off
 title Welcome to Multi-Utility!
 setlocal EnableDelayedExpansion
 
@@ -32,7 +30,6 @@ pause
 :: Total number of menu items
 set max=14
 set selected=1
-mode con: cols=60 lines=20
 
 :menu
 cls
@@ -41,7 +38,7 @@ title Multi-Utility Options
 echo ==========================================
 echo              MULTI-UTILITY
 echo ==========================================
-echo New! There is a menu!
+echo New - There is a Menu
 echo Please use W (Up), S (Down), X (Select)
 echo.
 
@@ -93,18 +90,24 @@ exit /b
 
 :select
 cls
-if %selected%==1 call %MUP%\SysReport.bat
-if %selected%==2 call %MUP%\FileVirusScan.bat
-if %selected%==3 call %MUP%\fsvs.bat
-if %selected%==4 call %MUP%\SysInfo.bat
-if %selected%==5 call %MUP%\NST.bat
-if %selected%==6 call %MUP%\AddAcc.bat
-if %selected%==7 call %MUP%\DelAcc.bat
-if %selected%==8 call %MUP%\FormatDisk.bat
-if %selected%==9 call %MUP%\CorruptedPenDrive.bat
-if %selected%==10 call %MUP%\CmdColourChange.bat
-if %selected%==11 call %MUP%\SearchFiles.exe
-if %selected%==12 call %MUP%\FileHider.bat
-if %selected%==13 call %MUP%\FileUnhider.bat
-if %selected%==14 exit
+set "choice=%selected%"
+
+:: Temporarily disable delayed expansion for external scripts
+setlocal DisableDelayedExpansion
+
+if "%choice%"=="1" call "%MUP%\SysReport.bat"
+if "%choice%"=="2" call "%MUP%\FileVirusScan.bat"
+if "%choice%"=="3" call "%MUP%\fsvs.bat"
+if "%choice%"=="4" call "%MUP%\SysInfo.bat"
+if "%choice%"=="5" call "%MUP%\NST.bat"
+if "%choice%"=="6" call "%MUP%\AddAcc.bat"
+if "%choice%"=="7" call "%MUP%\DelAcc.bat"
+if "%choice%"=="8" call "%MUP%\FormatDisk.bat"
+if "%choice%"=="9" call "%MUP%\CorruptedPenDrive.bat"
+if "%choice%"=="10" call "%MUP%\CmdColourChange.bat"
+if "%choice%"=="11" "%MUP%\SearchFiles.exe"
+if "%choice%"=="12" call "%MUP%\FileHider.bat"
+if "%choice%"=="13" call "%MUP%\FileUnhider.bat"
+if "%choice%"=="14" exit
+endlocal
 goto menu
