@@ -201,10 +201,10 @@ That is my AIM. Nothing else.
 
 ## 🛣️ Roadmap
 - [X] Complete MD
-- [ ] Make the UI more cleaner
+- [X] Make the UI more cleaner
 - [ ] Make a Command assistor
 - [ ] Make a Deprciated list
-- [ ] Navigate using up and down arrow(Maybe)
+- [X] Navigate using W and S and execute using X
 
 ## 📈 Stars
 ![Repo Stars](https://img.shields.io/github/stars/Advay-CMD/Multi-Utility?style=social)
