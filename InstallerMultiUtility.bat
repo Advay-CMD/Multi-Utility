@@ -135,7 +135,7 @@ for /f "delims=" %%a in ('where /R %systemdrive%\Users *AddAcc.bat') do set "a=%
 move %a% %systemroot%\System32\Multi_Utility\Programs
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *DelAcc.bat') do set "a=%%a"
 move %a% %systemroot%\System32\Multi_Utility\Programs
-for /f "delims=" %%a in ('where /R %systemdrive%\Users *CorruptedPenDrivec.bat') do set "a=%%a"
+for /f "delims=" %%a in ('where /R %systemdrive%\Users *CorruptedPenDrive.bat') do set "a=%%a"
 move %a% %systemroot%\System32\Multi_Utility\Programs
 for /f "delims=" %%a in ('where /R %systemdrive%\Users *FileHider.bat') do set "a=%%a"
 move %a% %systemroot%\System32\Multi_Utility\Programs
