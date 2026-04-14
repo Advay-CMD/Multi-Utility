@@ -54,7 +54,6 @@ Ah, there is a lot of them!
 - Search Files
 - File Hider
 - File unhider
-- Exit
 
 <br>
 A lot right?
