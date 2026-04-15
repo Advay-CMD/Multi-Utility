@@ -2,7 +2,7 @@
 title File Virus Scan
 
 echo Please Wait ./././././././././././././././././.      
-call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
+call "%ProgramFiles%\Multi_Utility\filedialogtrial.bat"
 
 :: Check if the file exists before scanning
 if exist "%resultA%" (
