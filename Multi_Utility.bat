@@ -1,7 +1,7 @@
 @echo off
 
 :: MUP is Multi Utility Path
-set "MUP=%SystemRoot%\System32\Multi_Utility\Programs"
+set "MUP=%ProgramFiles%\Multi_Utility\Programs"
 
 :: Check for Administrator Privileges
 NET SESSION >nul 2>&1
