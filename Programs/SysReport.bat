@@ -23,7 +23,7 @@ set "dateStamp=%DD%-%MM%-%YYYY%"
 set "timeStamp=%HH%-%Min%-%Sec%"
 
 :: Folder where directories will be saved
-set "reportFile=C:\Windows\System32\Multi_Utility\reportFile"
+set "reportFile=%ProgramFiles%\Multi_Utility\reportFile"
 set "reportDir=%reportFile%\SysReport"
 set "reportPath=%reportDir%\SysReport_Date_%dateStamp%_Time_%timeStamp%.txt"
 
