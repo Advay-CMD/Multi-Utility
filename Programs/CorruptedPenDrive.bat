@@ -1,5 +1,5 @@
 :: CorruptedPenDrive Fixer
-set FORMAT=%systemroot%\System32\Multi_Utility\Format
+set FORMAT=%ProgramFiles%\Multi_Utility\Format
 
 title Corrupted pen drive fixer
 
