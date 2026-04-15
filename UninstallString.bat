@@ -43,5 +43,5 @@ timeout /t 5 >null
 echo.
 pause
 :: Why I put over Here -> If I delete this, the Multi_Utility Uninstaller will exit almost Instantly
-rmdir /s /q %systemroot%\System32\Multi_Utility >null
+rmdir /s /q %ProgramFiles%\Multi_Utility >null
 exit /b
