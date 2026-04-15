@@ -40,7 +40,7 @@ echo.
 echo ------------------------------------------------------------------------------------------------------------------------
 
 :: Define Installation Directory
-set "INSTALL_DIR=%SystemRoot%\System32\Multi_Utility"
+set "INSTALL_DIR=%ProgramFiles%\Multi_Utility"
 
 :: Create Required Directories
 mkdir "%INSTALL_DIR%" 2>nul
