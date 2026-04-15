@@ -3,7 +3,7 @@ title File Hider
 
 echo.
 echo Please Wait ./././././././././././././././././.
-call "C:\Windows\System32\Multi_Utility\filedialogtrial.bat"
+call "%ProgramFiles%\Multi_Utility\filedialogtrial.bat"
 echo.
 attrib +h +s "%resultA%"
 echo.
