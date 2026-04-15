@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Utility | The Ultimate System Tool</title>
+  <meta name="description"
+    content="Multi-Utility is a lightweight program that helps you manage Windows programs, scan for viruses, format disks, and more.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+  <!-- Floating Background Mesh -->
+  <div class="bg-mesh">
+    <div class="blob-blue"></div>
+    <div class="blob-cyan"></div>
+  </div>
+
+  <!-- Sleek Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="ph-fill ph-rocket-launch"></i>
+        <span>Multi-Utility</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#installation" class="nav-btn">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content fade-in-up">
+      <div class="pill-badge">v1.2.0 is out now! ✨</div>
+      <h1 class="hero-title">Unleash the Power of <br><span class="text-gradient">Multi-Utility</span></h1>
+      <p class="hero-subtitle">
+        A highly capable, ultra-lightweight Windows toolkit designed to change settings, scan for viruses, manage
+        accounts, and more. Empower your machine securely and efficiently.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://github.com/Advay-CMD/Multi-Utility/releases" target="_blank"
+          class="btn btn-primary pulse-animation">
+          <i class="ph-bold ph-download-simple"></i>
+          Download Now
+        </a>
+        <a href="https://github.com/Advay-CMD/Multi-Utility" target="_blank" class="btn btn-secondary">
+          <i class="ph-bold ph-github-logo"></i>
+          View on Github
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in-up delay-1">
+      <div class="glass-window mock-image-container">
+        <div class="video-container">
+          <video id="demoVideo" src="./assets/Multi_Utility_Demo.mp4" muted playsinline webkit-playsinline
+            style="width: 100%; height: auto; display: block; border-radius: 12px; cursor: pointer;">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-controls-overlay">
+            <button id="playPauseBtn" class="control-btn"><i class="ph-fill ph-play"></i></button>
+            <button id="fullscreenBtn" class="control-btn"><i class="ph-bold ph-corners-out"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="container fade-in-up">
+      <div class="section-heading">
+        <h2 class="section-title">🤔 Why Multi-Utility?</h2>
+        <p class="section-desc">Stop settling for bloated, data-mining system tools.</p>
+      </div>
+
+      <div
+        style="text-align: center; max-width: 800px; margin: 0 auto 4rem; font-size: 1.2rem; color: #fff; line-height: 1.8;">
+        <strong>Multi-Utility hands you supreme control over your machine in a zero-footprint package.</strong><br>
+        Once you experience this level of transparent, lightning-fast execution, you'll wonder how you ever managed your
+        system without it. Whether you are an IT professional orchestrating environments or a power user seeking more
+        control—you are literally wasting time without it. It's safe, fully transparent, and completely free.
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card glass-card">
+          <i class="ph-fill ph-lightning about-icon"></i>
+          <h3>Lightweight & Fast</h3>
+          <p>Occupies almost virtually zero space but offers huge utility. Performs tasks significantly faster without
+            running
+            parasitic background trackers.</p>
+        </div>
+        <div class="about-card glass-card">
+          <i class="ph-fill ph-shield-check about-icon"></i>
+          <h3>100% Transparent Code</h3>
+          <p>No shady compiled binaries. It's an open-source batch file—you can see exactly what it's doing under the
+            hood. Absolute trust.</p>
+        </div>
+        <div class="about-card glass-card">
+          <i class="ph-fill ph-users about-icon"></i>
+          <h3>For Everyone</h3>
+          <p>Built for the absolute beginner and the hardcore IT admin alike. Unmatched versatility packed into one neat
+            utility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section features-section">
+    <div class="container fade-in-up">
+      <div class="section-heading">
+        <h2 class="section-title">✨ Packed With Features</h2>
+        <p class="section-desc">Discover the massive array of tools included in one simple script.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card glass-card">
+          <div class="feature-header">
+            <i class="ph-fill ph-cpu text-blue"></i>
+            <h3>System Report & Info</h3>
+          </div>
+          <p>Lists CPU, Battery, Memory, RAM, and GPU info. Stores reports locally for later use.</p>
+          <div class="feature-alert info">
+            <i class="ph-fill ph-info"></i>
+            <span><strong>Privacy Respected:</strong> Data is NOT collected. Stored in
+              <code>System32\Multi_Utility\Reports\</code>.</span>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-header">
+            <i class="ph-fill ph-bug-beetle text-green"></i>
+            <h3>Virus Scanners</h3>
+          </div>
+          <p>Scan individual suspicious files or perform a deeply comprehensive full-system scan against malicious
+            software.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-header">
+            <i class="ph-fill ph-wifi-high text-cyan"></i>
+            <h3>Network Speed Tester</h3>
+          </div>
+          <p>An integrated, highly reliable speed tester. Maintained extensively to beat default web-based testers.</p>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-header">
+            <i class="ph-fill ph-user-gear text-purple"></i>
+            <h3>Account Manager</h3>
+          </div>
+          <p>Add or delete system user accounts locally directly from the CLI tool without navigating infinite settings
+            menus.</p>
+        </div>
+
+        <div class="feature-card glass-card danger-card">
+          <div class="feature-header">
+            <i class="ph-fill ph-hard-drives text-red"></i>
+            <h3>Disk Utilities</h3>
+          </div>
+          <p>Format disks or attempt repairs on corrupted PenDrives. It mounts your drive post-wipe.</p>
+          <div class="feature-alert danger">
+            <i class="ph-fill ph-warning-octagon"></i>
+            <span><strong>WARNING:</strong> Wipes all data! Use only if you know what you're doing.</span>
+          </div>
+        </div>
+
+        <div class="feature-card glass-card">
+          <div class="feature-header">
+            <i class="ph-fill ph-magnifying-glass text-yellow"></i>
+            <h3>Search & Hide Files</h3>
+          </div>
+          <p>Blazing fast V1.2 search (faster than Explorer) without background indexing. Hide and unhide files
+            smoothly.</p>
+          <div class="feature-alert warning">
+            <i class="ph-fill ph-warning"></i>
+            <span>Casual usage only. Not immune against real hackers!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setup Section -->
+  <section id="installation" class="section setup-section">
+    <div class="container fade-in-up">
+      <div class="setup-container glass-card setup-layout">
+        <div class="setup-content">
+          <h2 class="section-title">Getting Started</h2>
+          <p>Installing Multi-Utility is as simple as it gets. No heavy installers, no bloatware.</p>
+
+          <ul class="setup-steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <strong>Extract the Archive</strong>
+                <span>Unzip the downloaded <code>.tar</code> file onto your computer from the GitHub link.</span>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <strong>Run the Installer</strong>
+                <span>Double click on <code>InstallerMultiUtility.bat</code>.</span>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <strong>Allow Permissions</strong>
+                <span>Accept the UAC (User Account Control) prompt by choosing "Yes".</span>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-text">
+                <strong>Wait & Exit</strong>
+                <span>Wait for data to be written. Press any key to exit. A shortcut will appear on your desktop!</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="setup-code">
+          <div class="code-header">
+            <p>Dependencies / Compiling</p>
+          </div>
+          <div class="code-body text-sm">
+            <p><span class="text-yellow"># Notes on dependencies:</span></p>
+            <p>Ensure <strong>WMIC</strong> is installed via Windows Programs and Features, as many functions rely on
+              it.</p>
+            <br>
+            <p><span class="text-blue"># Source code compiling:</span></p>
+            <p>Batch scripts do not require compilation.</p>
+            <p>For nested C/Python files, use GCC or MINGW64.</p>
+            <br>
+            <p><span class="text-red">WARNING:</span> The main branch is for development. Use at your own risk!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section id="roadmap" class="section roadmap-section">
+    <div class="container fade-in-up">
+      <div class="section-heading">
+        <h2 class="section-title">🛣️ Built by one, made for all.</h2>
+        <p class="section-desc">My aim is to satisfy people and their needs by making software that helps people.</p>
+      </div>
+
+      <div class="roadmap-grid">
+        <div class="glass-card roadmap-card">
+          <h3>The Roadmap</h3>
+          <ul class="roadmap-list">
+            <li class="done"><i class="ph-bold ph-check-circle"></i> Complete MD Docs</li>
+            <li class="done"><i class="ph-bold ph-check-circle"></i> Make UI Cleaner</li>
+            <li class="done"><i class="ph-bold ph-check-circle"></i> W/S/X Navigation System</li>
+            <li class="pending"><i class="ph-bold ph-circle"></i> Command Assistor</li>
+            <li class="pending"><i class="ph-bold ph-circle"></i> Depreciated List</li>
+            <li class="pending"><i class="ph-bold ph-circle"></i> Permanent CMD Color Change</li>
+          </ul>
+        </div>
+
+        <div class="glass-card contribution-card">
+          <h3>Become a Contributor</h3><br>
+          <p>I didn't have anyone do this project for me. I did it by myself. But I would really appreciate <strong>team
+              work and contributions</strong>.</p><br>
+          <p>Please star, watch on github and share it to your friends to motivate development!</p><br>
+          <div class="contact-links mt-4">
+            <a href="mailto:advaycmd@duck.com" class="text-sm"><i class="ph ph-envelope-simple text-blue"></i>
+              advaycmd@duck.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content fade-in-up">
+      <div class="footer-brand">
+        <i class="ph-fill ph-rocket-launch"></i>
+        <span>Multi-Utility</span>
+      </div>
+      <p class="footer-text">© To-Date: 13/03/26. Maintained with ❤️.</p>
+    </div>
+  </footer>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
