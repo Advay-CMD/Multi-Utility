@@ -201,9 +201,9 @@ That is my AIM. Nothing else.
 ## 🛣️ Roadmap
 - [X] Complete MD
 - [X] Make the UI more cleaner
-- [ ] Make a Command assistor
-- [ ] Make a Deprciated list
 - [X] Navigate using W and S and execute using X
+- [ ] Make a Command assistor
+- [ ] Make a Depreciated list
 
 ## 📈 Stars
 ![Repo Stars](https://img.shields.io/github/stars/Advay-CMD/Multi-Utility?style=social)
