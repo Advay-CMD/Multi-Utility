@@ -174,6 +174,16 @@ Useful for files that are hidden and need to be unhidden now.
 > [!WARNING]
 > Unable to find? Use the Search Files to find hidden files too.
 
+## Compiling from source code
+
+Mostly this repo contains only .bat files, that do NOT need to be compiled. For some files, like C or Python, CAN be compiled.<br><br>
+For C it is recommended you use GCC or MINGW64(same thing). <br><br>
+Few notes to take while compiling the main branch/installing the program in main branch ->
+
+- Main is where devlopment is done. The computer is at YOUR risk.
+- Feel free to report any bugs. Don't expect an immediate reply. I will check as soon as possible.
+- Mail: advaycmd@duck.com OR resolution.ai@outlook.com(I check this LESS often)
+
 ## Thanks for viewing
 
 I am planning to set donations. But remember, my first priority is to satisfy you. Everything else to me is second.
