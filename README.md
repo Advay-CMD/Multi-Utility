@@ -146,8 +146,7 @@ Changes the console color. [Working on permanently color change]
 
 ## 🔍 Search files
 
-This searches your files... Kind of faster than explorer.
-This program will be improved, to make it certainly faster than explorer. Like search in seconds? We will see.
+This tool is now improved in v1.2.0, It is certainly faster than explorer! This tool **DOES NOT run** in the background **NOR** indexes, unlike many other tools of such kind, reducing laptop/desktop's RAM and ROM load.
 
 ## 📁 File Hider
 
