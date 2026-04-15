@@ -30,9 +30,7 @@ IF %ERRORLEVEL% EQU 2 (
 ) ELSE (
          break
 )
-:: Actually, I don't want the user to uninstall this software
-
-rmdir /s /q %systemroot%\System32\Multi_Utility >null
+:: Actually, I don't want the user to uninstall this software :)
 
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\MultiUtility.bat" /f >null
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\MultiUtility" /f >null
@@ -43,7 +41,7 @@ echo Stoping services
 :: This not required but it feels really cool
 timeout /t 5 >null
 echo.
-echo Press any key to continue...
-echo.
 pause
+:: Why I put over Here -> If I delete this, the Multi_Utility Uninstaller will exit almost Instantly
+rmdir /s /q %systemroot%\System32\Multi_Utility >null
 exit /b
