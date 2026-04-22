@@ -38,7 +38,7 @@ title Multi-Utility Options
 echo ==========================================
 echo              MULTI-UTILITY
 echo ==========================================
-echo New - There is a Menu
+echo Did you know that I, who created this is 13, started when I was 11... probably, no.
 echo Please use W (Up), S (Down), X (Select)
 echo.
 
@@ -47,16 +47,82 @@ call :printOption 2  "Scan File for Viruses"
 call :printOption 3  "System Scan"
 call :printOption 4  "System Information"
 call :printOption 5  "Network Speed Tester"
-call :printOption 6  "Add an Account"
-call :printOption 7  "Delete Account"
-call :printOption 8  "Format Disk"
+call :printOption 6  "Format Disk"
 :: call :printOption 8  "Format Disk"
-call :printOption 9  "Corrupted Pendrive Fixer"
-call :printOption 10 "CMD Colour Change"
-call :printOption 11 "Search Files"
-call :printOption 12 "File Hider"
-call :printOption 13 "File Unhider"
-call :printOption 14 "Exit"
+call :printOption 7  "Corrupted Pendrive Fixer"
+call :printOption 8 "CMD Colour Change"
+call :printOption 9 "File Utility's"
+call :printOption 10 ">>Deprecated<<"
+call :printOption 11 "Exit"
+
+echo.
+choice /c WSX /n >nul
+
+:: Handle input
+if errorlevel 3 goto select
+if errorlevel 2 (
+    set /a selected+=1
+    goto wrap
+)
+if errorlevel 1 (
+    set /a selected-=1
+    goto wrap
+)
+
+:menu_file
+echo ==========================================
+echo              MULTI-UTILITY
+echo ==========================================
+echo.
+rem There is NO WAY I can do 1 and 2. Sad... Or else I will have to rewrite the logic... If someone has suggestions, pull up.
+call :printOption 91 "Search Files"
+call :printOption 92 "File Hider"
+call :printOption 93 "File Unhider"
+
+echo.
+choice /c WSX /n >nul
+
+:: Handle input
+if errorlevel 3 goto select
+if errorlevel 2 (
+    set /a selected+=1
+    goto wrap
+)
+if errorlevel 1 (
+    set /a selected-=1
+    goto wrap
+
+
+:menu_Deprecated
+echo ==========================================
+echo              MULTI-UTILITY
+echo ==========================================
+echo.
+rem There is NO WAY I can do 1 and 2. Sad... Or else I will have to rewrite the logic... If someone has suggestions, pull up.
+call :printOption 101 "Account Managment"
+
+echo.
+choice /c WSX /n >nul
+
+:: Handle input
+if errorlevel 3 goto select
+if errorlevel 2 (
+    set /a selected+=1
+    goto wrap
+)
+if errorlevel 1 (
+    set /a selected-=1
+    goto wrap
+)
+
+:menu_Account
+echo ==========================================
+echo              MULTI-UTILITY
+echo ==========================================
+echo.
+rem There is NO WAY I can do 1 and 2. Sad... Or else I will have to rewrite the logic... If someone has suggestions, pull up.
+call :printOption 1011 "Add an Account"
+call :printOption 1012 "Delete an Account"
 
 echo.
 choice /c WSX /n >nul
@@ -101,14 +167,17 @@ if "%choice%"=="2" call "%MUP%\FileVirusScan.bat"
 if "%choice%"=="3" call "%MUP%\fsvs.bat"
 if "%choice%"=="4" call "%MUP%\SysInfo.bat"
 if "%choice%"=="5" call "%MUP%\NST.bat"
-if "%choice%"=="6" call "%MUP%\AddAcc.bat"
-if "%choice%"=="7" call "%MUP%\DelAcc.bat"
-if "%choice%"=="8" call "%MUP%\FormatDisk.bat"
-if "%choice%"=="9" call "%MUP%\CorruptedPenDrive.bat"
-if "%choice%"=="10" call "%MUP%\ccc.bat"
-if "%choice%"=="11" "%MUP%\SearchFiles.exe"
-if "%choice%"=="12" call "%MUP%\FileHider.bat"
-if "%choice%"=="13" call "%MUP%\FileUnhider.bat"
-if "%choice%"=="14" exit
+if "%choice%"=="1011" call "%MUP%\AddAcc.bat"
+if "%choice%"=="1012" call "%MUP%\DelAcc.bat"
+if "%choice%"=="6" call "%MUP%\FormatDisk.bat"
+if "%choice%"=="7" call "%MUP%\CorruptedPenDrive.bat"
+if "%choice%"=="8" call "%MUP%\ccc.bat"
+if "%choice%"=="10" goto menu_Deprecated
+if "%choice%"=="101" goto menu_Account
+if "%choice%"=="9" goto menu_file
+if "%choice%"=="91" "%MUP%\SearchFiles.exe"
+if "%choice%"=="92" call "%MUP%\FileHider.bat"
+if "%choice%"=="93" call "%MUP%\FileUnhider.bat"
+if "%choice%"=="11" exit
 endlocal
 goto menu
