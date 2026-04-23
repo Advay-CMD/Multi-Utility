@@ -52,7 +52,7 @@ call :printOption 6  "Format Disk"
 call :printOption 7  "Corrupted Pendrive Fixer"
 call :printOption 8 "CMD Colour Change"
 call :printOption 9 "File Utility's"
-call :printOption 10 ">>Deprecated<<"
+call :printOption 10 "---Deprecated---"
 call :printOption 11 "Exit"
 
 echo.
