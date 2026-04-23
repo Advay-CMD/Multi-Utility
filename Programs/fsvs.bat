@@ -5,7 +5,7 @@ title Full System Virus Scan
 echo Starting FULL system scan... please wait.
 echo.
 
-"%ProgramFiles%\Windows Defender\MpCmdRun.exe" -Scan -ScanType 1
+"%ProgramFiles%\Windows Defender\MpCmdRun.exe" -Scan -ScanType 2
 
 echo.
 echo Scan completed.
