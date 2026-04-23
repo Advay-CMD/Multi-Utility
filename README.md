@@ -215,8 +215,8 @@ That is my AIM. Nothing else.
 - [X] Make the UI more cleaner
 - [X] Navigate using W and S and execute using X
 - [X] Make a Depreciated list
+- [X] Plugins
 - [ ] Make a Command assistor
-- [ ] Plugins
 
 ## 📈 Stars
 ![Repo Stars](https://img.shields.io/github/stars/Advay-CMD/Multi-Utility?style=social)
