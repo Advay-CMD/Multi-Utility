@@ -1,183 +1,158 @@
 @echo off
+setlocal EnableDelayedExpansion
 
-:: MUP is Multi Utility Path
+:: Path
 set "MUP=%ProgramFiles%\Multi_Utility\Programs"
 
-:: Check for Administrator Privileges
+:: Admin check
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
-    :: Not admin, relaunch using VBScript
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\elevate.vbs"
-    echo UAC.ShellExecute "cmd.exe", "/c ""%~f0""", "", "runas", 1 >> "%temp%\elevate.vbs"
-    cscript //nologo "%temp%\elevate.vbs"
-    del "%temp%\elevate.vbs"
+    echo Requesting admin...
+    powershell -Command "Start-Process cmd -ArgumentList '/c \"%~f0\"' -Verb runAs"
     exit /b
 )
 
-title Welcome to Multi-Utility!
-setlocal EnableDelayedExpansion
-
-:: Enable ANSI escape sequences
+:: Enable ANSI
 for /f %%a in ('echo prompt $E ^| cmd') do set "ESC=%%a"
 
-:: Optional: Enable Virtual Terminal Processing (Windows 10/11)
-reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1 /f >nul 2>&1
-
-echo Welcome to Multi-Utility! Here you have to choose an option from menu!
-echo.
-pause
-
-:: Total number of menu items
-set max=14
+:: ---------------- MAIN MENU ----------------
+:main_menu
 set selected=1
+set max=11
 
-:menu
+:main_loop
 cls
-title Multi-Utility Options
-
 echo ==========================================
 echo              MULTI-UTILITY
 echo ==========================================
-echo Did you know that I, who created this is 13, started when I was 11... probably, no.
-echo Please use W (Up), S (Down), X (Select)
+echo Use W (Up), S (Down), X (Select)
 echo.
 
-call :printOption 1  "System Report"
-call :printOption 2  "Scan File for Viruses"
-call :printOption 3  "System Scan"
-call :printOption 4  "System Information"
-call :printOption 5  "Network Speed Tester"
-call :printOption 6  "Format Disk"
-:: call :printOption 8  "Format Disk"
-call :printOption 7  "Corrupted Pendrive Fixer"
-call :printOption 8 "CMD Colour Change"
-call :printOption 9 "File Utility's"
-call :printOption 10 "---Deprecated---"
-call :printOption 11 "Exit"
+call :print 1  "System Report"
+call :print 2  "Scan File for Viruses"
+call :print 3  "System Scan"
+call :print 4  "System Information"
+call :print 5  "Network Speed Tester"
+call :print 6  "Format Disk"
+call :print 7  "Corrupted Pendrive Fixer"
+call :print 8  "CMD Colour Change"
+call :print 9  "File Utilities"
+call :print 10 "Account Management"
+call :print 11 "Exit"
 
-echo.
-choice /c WSX /n >nul
+call :input
 
-:: Handle input
-if errorlevel 3 goto select
-if errorlevel 2 (
-    set /a selected+=1
-    goto wrap
-)
-if errorlevel 1 (
-    set /a selected-=1
-    goto wrap
-)
+if "!action!"=="up" set /a selected-=1
+if "!action!"=="down" set /a selected+=1
+if "!action!"=="select" goto main_select
 
-:menu_file
-echo ==========================================
-echo              MULTI-UTILITY
-echo ==========================================
-echo.
-rem There is NO WAY I can do 1 and 2. Sad... Or else I will have to rewrite the logic... If someone has suggestions, pull up.
-call :printOption 91 "Search Files"
-call :printOption 92 "File Hider"
-call :printOption 93 "File Unhider"
-
-echo.
-choice /c WSX /n >nul
-
-:: Handle input
-if errorlevel 3 goto select
-if errorlevel 2 (
-    set /a selected+=1
-    goto wrap
-)
-if errorlevel 1 (
-    set /a selected-=1
-    goto wrap
-
-
-:menu_Deprecated
-echo ==========================================
-echo              MULTI-UTILITY
-echo ==========================================
-echo.
-rem There is NO WAY I can do 1 and 2. Sad... Or else I will have to rewrite the logic... If someone has suggestions, pull up.
-call :printOption 101 "Account Managment"
-
-echo.
-choice /c WSX /n >nul
-
-:: Handle input
-if errorlevel 3 goto select
-if errorlevel 2 (
-    set /a selected+=1
-    goto wrap
-)
-if errorlevel 1 (
-    set /a selected-=1
-    goto wrap
-)
-
-:menu_Account
-echo ==========================================
-echo              MULTI-UTILITY
-echo ==========================================
-echo.
-rem There is NO WAY I can do 1 and 2. Sad... Or else I will have to rewrite the logic... If someone has suggestions, pull up.
-call :printOption 1011 "Add an Account"
-call :printOption 1012 "Delete an Account"
-
-echo.
-choice /c WSX /n >nul
-
-:: Handle input
-if errorlevel 3 goto select
-if errorlevel 2 (
-    set /a selected+=1
-    goto wrap
-)
-if errorlevel 1 (
-    set /a selected-=1
-    goto wrap
-)
-
-:wrap
 if !selected! LSS 1 set selected=%max%
 if !selected! GTR %max% set selected=1
-goto menu
 
-:printOption
+goto main_loop
+
+:main_select
+if %selected%==1 call "%MUP%\SysReport.bat"
+if %selected%==2 call "%MUP%\FileVirusScan.bat"
+if %selected%==3 call "%MUP%\fsvs.bat"
+if %selected%==4 call "%MUP%\SysInfo.bat"
+if %selected%==5 call "%MUP%\NST.bat"
+if %selected%==6 call "%MUP%\FormatDisk.bat"
+if %selected%==7 call "%MUP%\CorruptedPenDrive.bat"
+if %selected%==8 call "%MUP%\ccc.bat"
+if %selected%==9 goto file_menu
+if %selected%==10 goto account_menu
+if %selected%==11 exit
+
+pause
+goto main_menu
+
+:: ---------------- FILE MENU ----------------
+:file_menu
+set selected=1
+set max=4
+
+:file_loop
+cls
+echo ===== File Utilities =====
+echo.
+
+call :print 1 "Search Files"
+call :print 2 "File Hider"
+call :print 3 "File Unhider"
+call :print 4 "Back"
+
+call :input
+
+if "!action!"=="up" set /a selected-=1
+if "!action!"=="down" set /a selected+=1
+if "!action!"=="select" goto file_select
+
+if !selected! LSS 1 set selected=%max%
+if !selected! GTR %max% set selected=1
+
+goto file_loop
+
+:file_select
+if %selected%==1 "%MUP%\SearchFiles.exe"
+if %selected%==2 call "%MUP%\FileHider.bat"
+if %selected%==3 call "%MUP%\FileUnhider.bat"
+if %selected%==4 goto main_menu
+
+pause
+goto file_menu
+
+:: ---------------- ACCOUNT MENU ----------------
+:account_menu
+set selected=1
+set max=3
+
+:acc_loop
+cls
+echo ===== Account Management =====
+echo.
+
+call :print 1 "Add Account"
+call :print 2 "Delete Account"
+call :print 3 "Back"
+
+call :input
+
+if "!action!"=="up" set /a selected-=1
+if "!action!"=="down" set /a selected+=1
+if "!action!"=="select" goto acc_select
+
+if !selected! LSS 1 set selected=%max%
+if !selected! GTR %max% set selected=1
+
+goto acc_loop
+
+:acc_select
+if %selected%==1 call "%MUP%\AddAcc.bat"
+if %selected%==2 call "%MUP%\DelAcc.bat"
+if %selected%==3 goto main_menu
+
+pause
+goto account_menu
+
+:: ---------------- INPUT HANDLER ----------------
+:input
+choice /c WSX /n >nul
+
+if errorlevel 3 set action=select
+if errorlevel 2 set action=down
+if errorlevel 1 set action=up
+
+exit /b
+
+:: ---------------- PRINT ----------------
+:print
 set "num=%~1"
 set "text=%~2"
 
-:: Highlight selected option using ANSI colors
 if "%num%"=="!selected!" (
     echo !ESC![30;47m^> %num%. %text% !ESC![0m
 ) else (
     echo    %num%. %text%
 )
 exit /b
-
-:select
-cls
-set "choice=%selected%"
-
-:: Temporarily disable delayed expansion for external scripts
-setlocal DisableDelayedExpansion
-
-if "%choice%"=="1" call "%MUP%\SysReport.bat"
-if "%choice%"=="2" call "%MUP%\FileVirusScan.bat"
-if "%choice%"=="3" call "%MUP%\fsvs.bat"
-if "%choice%"=="4" call "%MUP%\SysInfo.bat"
-if "%choice%"=="5" call "%MUP%\NST.bat"
-if "%choice%"=="1011" call "%MUP%\AddAcc.bat"
-if "%choice%"=="1012" call "%MUP%\DelAcc.bat"
-if "%choice%"=="6" call "%MUP%\FormatDisk.bat"
-if "%choice%"=="7" call "%MUP%\CorruptedPenDrive.bat"
-if "%choice%"=="8" call "%MUP%\ccc.bat"
-if "%choice%"=="10" goto menu_Deprecated
-if "%choice%"=="101" goto menu_Account
-if "%choice%"=="9" goto menu_file
-if "%choice%"=="91" "%MUP%\SearchFiles.exe"
-if "%choice%"=="92" call "%MUP%\FileHider.bat"
-if "%choice%"=="93" call "%MUP%\FileUnhider.bat"
-if "%choice%"=="11" exit
-endlocal
-goto menu
