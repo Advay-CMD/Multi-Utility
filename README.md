@@ -1,5 +1,7 @@
 # 🚀Introducing Multi-Utility!
 
+![MultiUtility](https://github.com/Advay-CMD/Multi-Utility/blob/main/docs/Multi_Utility_Demo.mp4)
+
 👋 Hello there, since you do not know what is Multi-Utility, let me explain that to you.
 
 <br>
@@ -24,7 +26,7 @@ To install this program you will need the .zip file extracted. I hope you know t
 <br>
 Now click twice on the program InstallerMultiUtility.bat
 <br><br>
-![InstallerMultiUtility](https://github.com/Advay-CMD/Multi-Utility/blob/main/Website/gif1.gif)
+![InstallerMultiUtility](https://github.com/Advay-CMD/Multi-Utility/blob/main/docs/gif1.gif)
 <br><br>
 Now the app would have been launched... It will check for admin permisions, therefore, if you encounter a UAC(User Account Control) click the "Yes" button.
 <br><br>
