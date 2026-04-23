@@ -126,9 +126,7 @@ ccc.bat
 fsvs.bat
 CmdColourChange.bat
 ) do (
-    for /f "delims=" %%a in ('where /R "%SystemDrive%\Users" %%F 2^>nul') do (
-        move "%%a" "%INSTALL_DIR%\Programs\" >nul 2>&1
-    )
+    move "%~dp0Programs\%%F" "%INSTALL_DIR%\Programs\" >nul 2>&1
 )
 
 :: Edit here 7# - Put uninstall string and the file dialog in the Multi_Utility
