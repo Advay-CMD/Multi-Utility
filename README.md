@@ -1,6 +1,6 @@
 # 🚀Introducing Multi-Utility!
 
-![MultiUtility](https://github.com/Advay-CMD/Multi-Utility/blob/main/docs/Multi_Utility_Demo.mp4)
+[Watch Demo](https://github.com/Advay-CMD/Multi-Utility/blob/main/docs/Multi_Utility_Demo.mp4)
 
 👋 Hello there, since you do not know what is Multi-Utility, let me explain that to you.
 
