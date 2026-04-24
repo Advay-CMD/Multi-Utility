@@ -1,5 +1,51 @@
 @echo off
 
+:: Update Logic
+set "VERSION=v1.2.1"
+
+:: Download latest version file
+curl -L -o .version_release https://raw.githubusercontent.com/Advay-CMD/Multi-Utility/main/.version_release >nul 2>&1
+
+:: Read latest version from file
+set /p LATEST=<.version_release
+
+:: Compare versions
+if /I not "%VERSION%"=="%LATEST%" (
+    echo Update is Available! Current: %VERSION% Latest: %LATEST%
+    
+    set /p ANS=Do you want to install update? (YES/NO): 
+    
+    if /I "%ANS%"=="YES" (
+        echo Fetching...
+
+        set "DOWNLOAD_URL=https://github.com/Advay-CMD/Multi-Utility/releases/download/%LATEST%/Multi_Utility.tar"
+        set "DEST=%USERPROFILE%\Desktop\Multi_Utility.tar"
+
+        curl -L -o "%DEST%" "%DOWNLOAD_URL%" >nul 2>&1
+
+        echo Extracting...
+
+        :: Try OneDrive Desktop first
+        if exist "%USERPROFILE%\OneDrive\Desktop" (
+            set "DESKTOP=%USERPROFILE%\OneDrive\Desktop"
+        ) else (
+            set "DESKTOP=%USERPROFILE%\Desktop"
+        )
+
+        echo Using Desktop: %DESKTOP%
+        tar -xf "%DEST%" -C "%DESKTOP%" >nul 2>&1
+
+        echo OK! The script is on your Desktop.
+        pause
+
+        echo Running Uninstall...
+        call "%~dp0UninstallString.bat"
+    )
+) else (
+    echo You are already up to date.
+)
+
+
 :: MUP is Multi Utility Path
 set "MUP=%SystemRoot%\System32\Multi_Utility\Programs"
 
