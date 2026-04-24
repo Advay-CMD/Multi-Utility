@@ -1,49 +1,116 @@
 @echo off
 
-:: Update Logic
+setlocal EnableDelayedExpansion
+
+:: Current version
 set "VERSION=v1.2.1"
 
-:: Download latest version file
-curl -L -o .version_release https://raw.githubusercontent.com/Advay-CMD/Multi-Utility/main/.version_release >nul 2>&1
+:: Temp file paths
+set "VER_FILE=%TEMP%\version_release.txt"
+set "DEST=%TEMP%\Multi_Utility.tar"
 
-:: Read latest version from file
-set /p LATEST=<.version_release
+:: Clean old files
+if exist "!VER_FILE!" del /f /q "!VER_FILE!"
+if exist "!DEST!" del /f /q "!DEST!"
 
+:: ---------------------------
+:: Download version file (curl)
+:: ---------------------------
+curl -L -o "!VER_FILE!" "https://raw.githubusercontent.com/Advay-CMD/Multi-Utility/main/.version_release" >nul 2>&1
+
+:: Fallback to PowerShell if curl failed
+if not exist "!VER_FILE!" (
+    echo Curl failed, trying PowerShell...
+    powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Advay-CMD/Multi-Utility/main/.version_release' -OutFile '%VER_FILE%'" >nul 2>&1
+)
+
+:: Check again
+if not exist "!VER_FILE!" (
+    echo Failed to fetch latest version.
+    pause
+    exit /b
+)
+
+:: ---------------------------
+:: Read latest version safely
+:: ---------------------------
+for /f "usebackq delims=" %%A in ("!VER_FILE!") do (
+    set "LATEST=%%A"
+)
+
+set "LATEST=!LATEST: =!"
+
+:: Debug (remove later if you want)
+echo Current: !VERSION!
+echo Latest:  !LATEST!
+echo.
+
+:: ---------------------------
 :: Compare versions
-if /I not "%VERSION%"=="%LATEST%" (
-    echo Update is Available! Current: %VERSION% Latest: %LATEST%
-    
-    set /p ANS=Do you want to install update? (YES/NO): 
-    
-    if /I "%ANS%"=="YES" (
-        echo Fetching...
+:: ---------------------------
+if /I "!VERSION!" NEQ "!LATEST!" (
+    echo Update Available!
+    echo.
 
-        set "DOWNLOAD_URL=https://github.com/Advay-CMD/Multi-Utility/releases/download/%LATEST%/Multi_Utility.tar"
-        set "DEST=%USERPROFILE%\Desktop\Multi_Utility.tar"
+    set /p ANS=Do you want to install update? ^(YES/NO^): 
 
-        curl -L -o "%DEST%" "%DOWNLOAD_URL%" >nul 2>&1
+    if /I "!ANS!"=="YES" (
+        echo.
+        echo Downloading update...
 
+        set "DOWNLOAD_URL=https://github.com/Advay-CMD/Multi-Utility/releases/download/v1.2.1/Multi-Utility-main.tar.xz"
+
+        :: Try curl
+        curl -L -o "!DEST!" "!DOWNLOAD_URL!" >nul 2>&1
+
+        :: Fallback to PowerShell
+        if not exist "!DEST!" (
+            echo Curl failed, trying PowerShell...
+            powershell -Command "Invoke-WebRequest -Uri '!DOWNLOAD_URL!' -OutFile '!DEST!'" >nul 2>&1
+        )
+
+        if not exist "!DEST!" (
+            echo Download failed.
+            pause
+            exit /b
+        )
+
+        echo.
         echo Extracting...
 
-        :: Try OneDrive Desktop first
+        :: Detect Desktop path
         if exist "%USERPROFILE%\OneDrive\Desktop" (
             set "DESKTOP=%USERPROFILE%\OneDrive\Desktop"
         ) else (
             set "DESKTOP=%USERPROFILE%\Desktop"
         )
 
-        echo Using Desktop: %DESKTOP%
-        tar -xf "%DEST%" -C "%DESKTOP%" >nul 2>&1
+        echo Using Desktop: !DESKTOP!
 
-        echo OK! The script is on your Desktop.
+        :: Extract (requires Windows 10+)
+        tar -xf "!DEST!" -C "!DESKTOP!"
+        if errorlevel 1 (
+            echo Extraction failed. Your system may not support tar.
+            pause
+            exit /b
+        )
+
+        echo.
+        echo Update installed on Desktop.
         pause
 
         echo Running Uninstall...
         call "%~dp0UninstallString.bat"
+    ) else (
+        echo Update cancelled.
+        pause
     )
 ) else (
     echo You are already up to date.
+    pause
 )
+
+endlocal
 
 
 :: MUP is Multi Utility Path
