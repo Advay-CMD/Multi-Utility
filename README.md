@@ -216,6 +216,7 @@ That is my AIM. Nothing else.
 - [X] Navigate using W and S and execute using X
 - [X] Make a Depreciated list
 - [X] Plugins
+- [ ] Make Auto-Update
 - [ ] Make a Command assistor
 
 ## 📈 Stars
